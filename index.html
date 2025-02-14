@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0c1020;
+            /* Original background color */
             color: white;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 800px;
+            width: 100%;
             margin: 40px auto;
             padding: 30px;
             background-color: #1a2035;
+            /* Original container color */
             border-radius: 8px;
             box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            /* Subtle shadow */
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             text-align: left;
             color: white;
+            /* Original heading color */
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            /* Added subtle border */
+            padding-bottom: 10px;
         }
 
         label {
@@ -40,17 +58,20 @@
             margin-bottom: 5px;
             font-weight: bold;
             color: #ddd;
+            /* Original label color */
         }
 
         select {
-            width: 80%;
-            max-width: 350px;
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Original border */
             border-radius: 6px;
             background-color: #333;
+            /* Original select background */
             color: white;
+            /* Original select text color */
             box-sizing: border-box;
             appearance: none;
             -webkit-appearance: none;
@@ -59,12 +80,14 @@
             background-repeat: no-repeat;
             background-position: right 10px top 50%;
             background-size: 20px;
+            transition: border-color 0.3s ease;
         }
 
         select:focus {
             outline: none;
             border-color: #66b3ff;
-            box-shadow: 0 0 5px rgba(102, 179, 255, 0.2);
+            box-shadow: 0 0 5px rgba(102, 179, 255, 0.5);
+            /* Enhanced focus shadow */
         }
 
         #results {
@@ -73,24 +96,46 @@
         }
 
         ul {
-            list-style-type: disc;
-            padding-left: 25px;
+            list-style-type: none;
+            /* Removed bullets */
+            padding-left: 0;
         }
 
         li {
             margin-bottom: 5px;
+            padding-left: 20px;
+            /* Space for the arrow */
+            position: relative;
         }
 
-        #techList li:before {
-            content: "\2022";  /* Bullet character */
-            color: #66b3ff;  /* Bullet color */
-            font-weight: bold; /* Make the bullet bold */
-            display: inline-block; /* Needed to add space */
-            width: 1em; /* Also needed for space (adjust if necessary) */
-            margin-left: -1em; /* Offset so bullet aligns with text */
+        /* Style the bullet points as arrows using Font Awesome */
+        #techList li::before {
+            font-family: 'Font Awesome 6 Free';
+            /* Use the correct Font Awesome font family */
+            font-weight: 900;
+            /* Solid style */
+            content: '\f0da';
+            /* Unicode for the right arrow */
+            position: absolute;
+            left: 0;
+            color: #66b3ff;
+            /* Original bullet color */
+        }
+
+        #definition {
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Subtle border around the definition */
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            /* Slight background highlight */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* Shadow for definition */
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>TeamStation Software Engineering Role Definitions</h1>
@@ -147,141 +192,141 @@
 
     <script>
         const roleDefinitions = {
-           "aiprompt": {
+            "aiprompt": {
                 definition: "AI Prompt Engineers are specialists in crafting effective prompts for large language models, optimizing AI outputs for various applications.",
                 technologies: ["Python", "LangChain", "Transformers", "GPT models (GPT-3, GPT-4)", "Prompt Engineering Techniques", "Vector Databases (e.g., Pinecone, Chroma)", "API Integration (OpenAI API)", "Cloud Platforms (AWS, Azure, GCP)", "Jupyter Notebooks", "Prompt Versioning Tools", "Adversarial Prompting", "Hallucination Mitigation", "Chain of Thought Prompting", "Few-Shot Learning", "Zero-Shot Learning"]
             },
             "architect": {
                 definition: "Software Architects design and oversee the implementation of software systems, ensuring they meet scalability, security, and performance requirements.",
-                technologies: ["Cloud Architecture (AWS, Azure, GCP)", "Microservices", "API Design (REST, GraphQL)", "Design Patterns", "UML", "System Design", "Scalability", "Security", "DevOps Practices", "Containerization (Docker, Kubernetes)", "IaC (Terraform, CloudFormation)", "Programming Languages (Java, Python, C#, Go)", "Database Technologies (SQL, NoSQL)", "Event-Driven Architecture", "Message Queues (Kafka, RabbitMQ)"]
+                technologies: ["Cloud Architecture (AWS, Azure, GCP)", "Microservices", "API Design (REST, GraphQL)", "Design Patterns", "UML", "System Design", "Scalability", "Security", "DevOps Practices", "Containerization (Docker, Kubernetes)", "IaC (Terraform, CloudFormation)", "Programming Languages (Java, Python, C#, Go)", "Database Technologies (SQL, NoSQL)", "Event-Driven Architecture", "Message Queues (Kafka, RabbitMQ)","Microsoft Azure", ".NET", "C#"]
             },
             "backend": {
                 definition: "Back-End Developers build and maintain the server-side logic and databases that power applications, ensuring data is processed efficiently and securely.",
-                technologies: ["Java (Spring, Spring Boot)", ".NET (C#, ASP.NET Core, .NET Framework)", "Python (Django, Flask)", "Ruby on Rails", "Node.js (Express.js)", "PHP (Laravel)", "Go", "Databases (PostgreSQL, MySQL, MongoDB, Oracle, Microsoft SQL Server, MariaDB)", "APIs (REST, GraphQL, SOAP, gRPC)", "Authentication & Authorization (OAuth, JWT)", "Serverless Computing", "Message Queues (Kafka, RabbitMQ, ActiveMQ)", "Docker", "Kubernetes", "CI/CD Pipelines (Jenkins, GitLab CI, Azure DevOps)", "Cloud Platforms (AWS, Azure, GCP)", "Testing Frameworks (JUnit, pytest, RSpec, NUnit)", "Caching Strategies (Redis, Memcached)", "C++", "Shell Scripting", "PowerShell", "Elasticsearch", "Redis", "Memcached", "Hibernate", "Entity Framework Core", "Dapper", "gRPC", "WebSockets", "JSON", "XML"]
+                technologies: ["Java (Spring, Spring Boot)", ".NET (C#, ASP.NET Core, .NET Framework)", "Python (Django, Flask)", "Ruby on Rails", "Node.js (Express.js)", "PHP (Laravel)", "Go", "Databases (PostgreSQL, MySQL, MongoDB, Oracle, Microsoft SQL Server, MariaDB)", "APIs (REST, GraphQL, SOAP, gRPC)", "Authentication & Authorization (OAuth, JWT)", "Serverless Computing", "Message Queues (Kafka, RabbitMQ, ActiveMQ)", "Docker", "Kubernetes", "CI/CD Pipelines (Jenkins, GitLab CI, Azure DevOps)", "Cloud Platforms (AWS, Azure, GCP)", "Testing Frameworks (JUnit, pytest, RSpec, NUnit)", "Caching Strategies (Redis, Memcached)", "C++", "Shell Scripting", "PowerShell","Microsoft SQL Server", "Microsoft Azure", ".NET", "C#", "ASP.NET", "Entity Framework Core"]
             },
             "bi": {
                 definition: "Business Intelligence Analysts analyze data to identify trends and insights that drive strategic business decisions, using visualization and reporting tools.",
-                technologies: ["SQL", "Data Warehousing (Snowflake, Redshift, BigQuery)", "ETL Processes (Apache Airflow, Informatica, Talend)", "Tableau", "Power BI", "Data Mining", "Statistical Analysis", "Data Modeling", "Reporting", "Data Visualization", "Data Governance", "OLAP", "R", "Python (Pandas, NumPy, Scikit-learn)", "Dashboards", "Data Cleaning", "Data Integration", "Predictive Analytics", "Data Storytelling", "Google Data Studio"]
+                technologies: ["SQL", "Data Warehousing (Snowflake, Redshift, BigQuery)", "ETL Processes (Apache Airflow, Informatica, Talend)", "Tableau", "Power BI", "Data Mining", "Statistical Analysis", "Data Modeling", "Reporting", "Data Visualization", "Data Governance", "OLAP", "R", "Python (Pandas, NumPy, Scikit-learn)", "Dashboards", "Data Cleaning", "Data Integration", "Predictive Analytics", "Data Storytelling", "Google Data Studio","Microsoft Power BI", "Microsoft Azure"]
             },
             "businessanalyst": {
                 definition: "Business Analysts identify business needs, define requirements, and facilitate communication between stakeholders and technical teams.",
-                technologies: ["Requirements Gathering", "Process Modeling (BPMN, UML)", "Agile Methodologies", "Stakeholder Analysis", "Business Process Improvement", "SWOT Analysis", "Gap Analysis", "User Stories", "Use Cases", "Wireframing Tools (Balsamiq, Axure, Figma)", "Jira", "Confluence", "Communication Skills", "Analytical Skills", "Problem-Solving Skills", "Business Case Development", "Risk Analysis", "Cost-Benefit Analysis"]
+                technologies: ["Requirements Gathering", "Process Modeling (BPMN, UML)", "Agile Methodologies", "Stakeholder Analysis", "Business Process Improvement", "SWOT Analysis", "Gap Analysis", "User Stories", "Use Cases", "Wireframing Tools (Balsamiq, Axure, Figma)", "Jira", "Confluence", "Communication Skills", "Analytical Skills", "Problem-Solving Skills", "Business Case Development", "Risk Analysis", "Cost-Benefit Analysis", "Microsoft Office", "Microsoft Visio", "Microsoft Project", "Azure DevOps"]
             },
             "cloudengineer": {
                 definition: "Cloud Engineers build, manage, and maintain cloud infrastructure, ensuring scalability, reliability, and security.",
-                technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Ansible", "Chef", "Puppet", "Cloud Security", "Networking", "Serverless Computing", "Infrastructure as Code (IaC)", "Automation", "Monitoring (Prometheus, Grafana, CloudWatch, Azure Monitor)", "Cloud Deployment", "Load Balancing", "IAM", "Cloud Networking (VPC, VPN)", "Disaster Recovery", "Cost Optimization", "CloudFormation", "Azure Resource Manager", "Google Cloud Deployment Manager"]
+                technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Ansible", "Chef", "Puppet", "Cloud Security", "Networking", "Serverless Computing", "Infrastructure as Code (IaC)", "Automation", "Monitoring (Prometheus, Grafana, CloudWatch, Azure Monitor)", "Cloud Deployment", "Load Balancing", "IAM", "Cloud Networking (VPC, VPN)", "Disaster Recovery", "Cost Optimization", "CloudFormation", "Azure Resource Manager", "Google Cloud Deployment Manager", "Microsoft Azure", "Azure DevOps", "PowerShell", ".NET"]
             },
             "crossplatform": {
                 definition: "Cross-Platform Designers create user interfaces that function seamlessly across different devices and operating systems.",
-                technologies: ["React Native", "Flutter", "Xamarin", "Ionic", "Cordova", "Responsive Design", "UI/UX Principles", "Mobile Design Patterns", "Accessibility Guidelines (WCAG)", "Cross-Platform Development", "UI Frameworks", "Design Systems", "Performance Optimization", "UI Testing", "UX Testing", "Agile Methodologies", "Design Thinking", "Usability Testing", "Prototyping Tools (Figma, Adobe XD, Sketch)"]
+                technologies: ["React Native", "Flutter", "Xamarin", "Ionic", "Cordova", "Responsive Design", "UI/UX Principles", "Mobile Design Patterns", "Accessibility Guidelines (WCAG)", "Cross-Platform Development", "UI Frameworks", "Design Systems", "Performance Optimization", "UI Testing", "UX Testing", "Agile Methodologies", "Design Thinking", "Usability Testing", "Prototyping Tools (Figma, Adobe XD, Sketch)","C#", ".NET", "Xamarin", "Visual Studio"]
             },
             "dataengineer": {
                 definition: "Data Engineers build and maintain the infrastructure for data storage, processing, and analysis, ensuring data is accessible and reliable.",
-                technologies: ["ETL Tools (Apache Kafka, Apache Spark, Apache NiFi)", "Data Warehousing (Snowflake, Amazon Redshift, Google BigQuery)", "Cloud Data Services (AWS Glue, Azure Data Factory, Google Dataflow)", "Data Modeling", "Data Governance", "Database Management (SQL, NoSQL)", "Data Pipelines", "Data Integration", "Cloud Computing", "Big Data Technologies (Hadoop, Hive, Pig, Flink)", "Data Streaming (Apache Flink, Apache Kafka Streams)", "Python", "SQL", "Shell Scripting", "Linux", "Data Lake", "Data Security", "Data Quality", "Metadata Management"]
+                technologies: ["ETL Tools (Apache Kafka, Apache Spark, Apache NiFi)", "Data Warehousing (Snowflake, Amazon Redshift, Google BigQuery)", "Cloud Data Services (AWS Glue, Azure Data Factory, Google Dataflow)", "Data Modeling", "Data Governance", "Database Management (SQL, NoSQL)", "Data Pipelines", "Data Integration", "Cloud Computing", "Big Data Technologies (Hadoop, Hive, Pig, Flink)", "Data Streaming (Apache Flink, Apache Kafka Streams)", "Python", "SQL", "Shell Scripting", "Linux", "Data Lake", "Data Security", "Data Quality", "Metadata Management","Microsoft Azure", "Azure Data Factory", "Azure Data Lake Storage", "Azure Synapse Analytics", "SQL Server Integration Services (SSIS)", "Azure Purview"]
             },
             "datascientist": {
                 definition: "Data Scientists use statistical modeling and machine learning techniques to analyze data and extract insights for decision-making.",
-                technologies: ["Python", "R", "Machine Learning (Scikit-learn, TensorFlow, PyTorch, XGBoost)", "Statistical Modeling", "Data Visualization (Tableau, Matplotlib, Seaborn, Plotly)", "Deep Learning", "Natural Language Processing (NLTK, SpaCy, Transformers)", "Data Mining", "Data Analysis", "Predictive Analytics", "Data Modeling", "A/B Testing", "Big Data Technologies (Spark, Hadoop)", "Cloud Platforms (AWS, Azure, GCP)", "Jupyter Notebooks", "Experiment Tracking (MLflow, Weights & Biases)", "Statistical Inference", "Causal Inference"]
+                technologies: ["Python", "R", "Machine Learning (Scikit-learn, TensorFlow, PyTorch, XGBoost)", "Statistical Modeling", "Data Visualization (Tableau, Matplotlib, Seaborn, Plotly)", "Deep Learning", "Natural Language Processing (NLTK, SpaCy, Transformers)", "Data Mining", "Data Analysis", "Predictive Analytics", "Data Modeling", "A/B Testing", "Big Data Technologies (Spark, Hadoop)", "Cloud Platforms (AWS, Azure, GCP)", "Jupyter Notebooks", "Experiment Tracking (MLflow, Weights & Biases)", "Statistical Inference", "Causal Inference","Microsoft Azure Machine Learning", "Azure Databricks", "Power BI", ".NET", "C#"]
             },
             "datatester": {
                 definition: "Data Testers ensure the accuracy, consistency, and reliability of data through rigorous testing and validation.",
-                technologies: ["SQL", "Data Validation Techniques", "ETL Testing", "Data Quality Metrics", "Data Profiling", "Data Governance", "Data Lineage", "Test Automation", "Defect Tracking (Jira, Bugzilla)", "Test Planning", "Database Testing", "API Testing", "Performance Testing", "Shell Scripting", "Data Analytics", "Data Security", "ETL Testing Tools", "Data Warehouse Testing", "Big Data Testing", "Data Integrity Testing", "Data Compliance Testing"]
+                technologies: ["SQL", "Data Validation Techniques", "ETL Testing", "Data Quality Metrics", "Data Profiling", "Data Governance", "Data Lineage", "Test Automation", "Defect Tracking (Jira, Bugzilla)", "Test Planning", "Database Testing", "API Testing", "Performance Testing", "Shell Scripting", "Data Analytics", "Data Security", "ETL Testing Tools", "Data Warehouse Testing", "Big Data Testing", "Data Integrity Testing", "Data Compliance Testing","Microsoft Azure Data Factory", "SQL Server", "Azure DevOps", "Azure Test Plans"]
             },
             "dba": {
                 definition: "DBA Engineers manage and maintain database systems, ensuring data integrity, performance, and security.",
-                technologies: ["SQL", "Database Administration (MySQL, PostgreSQL, Oracle, SQL Server, MongoDB)", "Performance Tuning", "Backup and Recovery", "Security", "Replication", "Clustering", "Database Monitoring", "Database Optimization", "Data Migration", "High Availability", "Disaster Recovery", "Database Security", "SQL Tuning", "Cloud Database Services (AWS RDS, Azure SQL Database, Google Cloud SQL)", "Database Design", "Data Modeling", "Database Auditing", "Database Compliance"]
+                technologies: ["SQL", "Database Administration (MySQL, PostgreSQL, Oracle, SQL Server, MongoDB)", "Performance Tuning", "Backup and Recovery", "Security", "Replication", "Clustering", "Database Monitoring", "Database Optimization", "Data Migration", "High Availability", "Disaster Recovery", "Database Security", "SQL Tuning", "Cloud Database Services (AWS RDS, Azure SQL Database, Google Cloud SQL)", "Database Design", "Data Modeling", "Database Auditing", "Database Compliance","Microsoft SQL Server", "Azure SQL Database", "SQL Server Management Studio (SSMS)", "PowerShell", "Azure Data Studio"]
             },
             "devops": {
                 definition: "DevOps Engineers automate and streamline software development and deployment processes, fostering collaboration between development and operations teams.",
-                technologies: ["CI/CD (Jenkins, GitLab CI, CircleCI, Azure DevOps)", "Automation Tools (Ansible, Chef, Puppet, Terraform)", "Cloud Platforms (AWS, Azure, GCP)", "Containerization (Docker, Kubernetes, OpenShift)", "Infrastructure as Code (Terraform, CloudFormation, Azure Resource Manager)", "Monitoring (Prometheus, Grafana, ELK Stack, Nagios, Splunk)", "Configuration Management", "Scripting (Python, Bash, PowerShell)", "Version Control (Git)", "Networking", "Security", "Cloud Networking (VPC, VPN)", "Load Balancing", "Server Administration", "Linux", "Windows Server"]
+                technologies: ["CI/CD (Jenkins, GitLab CI, CircleCI, Azure DevOps)", "Automation Tools (Ansible, Chef, Puppet, Terraform)", "Cloud Platforms (AWS, Azure, GCP)", "Containerization (Docker, Kubernetes, OpenShift)", "Infrastructure as Code (Terraform, CloudFormation, Azure Resource Manager)", "Monitoring (Prometheus, Grafana, ELK Stack, Nagios, Splunk)", "Configuration Management", "Scripting (Python, Bash, PowerShell)", "Version Control (Git)", "Networking", "Security", "Cloud Networking (VPC, VPN)", "Load Balancing", "Server Administration", "Linux", "Windows Server","Microsoft Azure DevOps", "PowerShell", ".NET", "Azure Resource Manager", "Azure Pipelines"]
             },
             "devsec": {
                 definition: "DevSec Engineers integrate security practices into the software development lifecycle, ensuring applications are secure from design to deployment.",
-                technologies: ["Security Auditing (OWASP ZAP, Burp Suite)", "Penetration Testing (Metasploit, Nmap)", "Vulnerability Scanning (Nessus, Qualys)", "Security Automation", "Cloud Security", "Application Security", "Threat Modeling", "Security Testing", "Compliance (SOC 2, GDPR, HIPAA)", "Risk Management", "IAM", "SIEM (Splunk, ELK Stack)", "SAST (SonarQube, Checkmarx)", "DAST", "Container Security (Twistlock, Aqua)", "IaC Security", "API Security", "Network Security", "Incident Response"]
+                technologies: ["Security Auditing (OWASP ZAP, Burp Suite)", "Penetration Testing (Metasploit, Nmap)", "Vulnerability Scanning (Nessus, Qualys)", "Security Automation", "Cloud Security", "Application Security", "Threat Modeling", "Security Testing", "Compliance (SOC 2, GDPR, HIPAA)", "Risk Management", "IAM", "SIEM (Splunk, ELK Stack)", "SAST (SonarQube, Checkmarx)", "DAST", "Container Security (Twistlock, Aqua)", "IaC Security", "API Security", "Network Security", "Incident Response","Microsoft Azure Security Center", "Azure Sentinel", "Azure Key Vault", "Microsoft Defender", "Azure DevOps"]
             },
             "ecommerce": {
                 definition: "eCommerce Specialists build, manage, and optimize online stores, driving sales and enhancing customer experiences.",
-                technologies: ["Shopify", "Magento", "WooCommerce", "Payment Gateways (Stripe, PayPal, Braintree)", "SEO", "Digital Marketing (Google Ads, Facebook Ads)", "Customer Relationship Management (CRM)", "E-commerce Platforms", "Online Marketing", "Customer Analytics", "Web Analytics (Google Analytics, Adobe Analytics)", "CRM Tools (Salesforce, HubSpot)", "Social Media Marketing", "Email Marketing", "Conversion Rate Optimization (CRO)", "A/B Testing", "Google Tag Manager", "Content Management Systems (CMS)", "Customer Segmentation"]
+                technologies: ["Shopify", "Magento", "WooCommerce", "Payment Gateways (Stripe, PayPal, Braintree)", "SEO", "Digital Marketing (Google Ads, Facebook Ads)", "Customer Relationship Management (CRM)", "E-commerce Platforms", "Online Marketing", "Customer Analytics", "Web Analytics (Google Analytics, Adobe Analytics)", "CRM Tools (Salesforce, HubSpot)", "Social Media Marketing", "Email Marketing", "Conversion Rate Optimization (CRO)", "A/B Testing", "Google Tag Manager", "Content Management Systems (CMS)", "Customer Segmentation","Microsoft Dynamics 365 Commerce", "Power BI"]
             },
-             "evangelist": {
+            "evangelist": {
                 definition: "DevOps Evangelists promote DevOps principles and practices, fostering a culture of collaboration and continuous improvement.",
-                technologies: ["DevOps Principles", "Public Speaking", "Community Building", "Technical Communication", "Agile Methodologies", "Cloud Computing", "Change Management", "Training", "Mentoring", "Leadership", "Communication Skills", "Presentation Skills", "Workshop Facilitation", "Content Creation", "Social Media", "Industry Knowledge", "Networking", "DevOps Tools (Jenkins, Docker, Kubernetes)", "Influencer Marketing"]
+                technologies: ["DevOps Principles", "Public Speaking", "Community Building", "Technical Communication", "Agile Methodologies", "Cloud Computing", "Change Management", "Training", "Mentoring", "Leadership", "Communication Skills", "Presentation Skills", "Workshop Facilitation", "Content Creation", "Social Media", "Industry Knowledge", "Networking", "DevOps Tools (Jenkins, Docker, Kubernetes)", "Influencer Marketing","Microsoft Azure DevOps", "PowerPoint"]
             },
-             "experienceassurance": {
+            "experienceassurance": {
                 definition: "Experience Assurance Engineers ensure applications deliver a seamless and satisfying user experience across all devices and platforms.",
-                technologies: ["Usability Testing", "Performance Monitoring", "User Feedback Analysis", "Accessibility Standards (WCAG)", "A/B Testing", "Analytics Tools (Google Analytics, Mixpanel, New Relic)", "User Research", "User Flows", "Information Architecture", "Interaction Design", "Visual Design", "Usability Testing Methodologies", "Performance Testing Tools (JMeter, LoadRunner, WebPageTest)", "Mobile Testing", "Cross-Browser Testing", "Accessibility Testing Tools", "User Journey Mapping", "Customer Satisfaction Measurement"]
+                technologies: ["Usability Testing", "Performance Monitoring", "User Feedback Analysis", "Accessibility Standards (WCAG)", "A/B Testing", "Analytics Tools (Google Analytics, Mixpanel, New Relic)", "User Research", "User Flows", "Information Architecture", "Interaction Design", "Visual Design", "Usability Testing Methodologies", "Performance Testing Tools (JMeter, LoadRunner, WebPageTest)", "Mobile Testing", "Cross-Browser Testing", "Accessibility Testing Tools", "User Journey Mapping", "Customer Satisfaction Measurement","Microsoft Azure Monitor", "Visual Studio App Center"]
             },
-             "frontend": {
+            "frontend": {
                 definition: "Front-End Developers build user interfaces, ensuring they are visually appealing, interactive, and accessible.",
-                technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Angular", "Vue.js", "Sass", "Less", "Webpack", "Babel", "jQuery", "Bootstrap", "Tailwind CSS", "Material UI", "Responsive Design", "DOM Manipulation", "AJAX", "GraphQL", "RESTful APIs", "WebSockets", "npm", "yarn", "TypeScript", "Web Accessibility (WCAG, ARIA)", "Progressive Web Apps (PWAs)", "Cross-Browser Compatibility", "Testing Frameworks (Jest, Mocha, Cypress)", "State Management (Redux, Vuex)", "Build Tools (Parcel, Vite)", "Linting (ESLint, Prettier)"]
+                technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Angular", "Vue.js", "Sass", "Less", "Webpack", "Babel", "jQuery", "Bootstrap", "Tailwind CSS", "Material UI", "Responsive Design", "DOM Manipulation", "AJAX", "GraphQL", "RESTful APIs", "WebSockets", "npm", "yarn", "TypeScript", "Web Accessibility (WCAG, ARIA)", "Progressive Web Apps (PWAs)", "Cross-Browser Compatibility", "Testing Frameworks (Jest, Mocha, Cypress)", "State Management (Redux, Vuex)", "Build Tools (Parcel, Vite)", "Linting (ESLint, Prettier)","TypeScript", "Chakra UI", "Next.js", "React", "Angular", "Vue.js", "Blazor", "C#", "Microsoft Visual Studio", "Microsoft Azure", "ASP.NET"]
             },
-             "fullstack": {
+            "fullstack": {
                 definition: "Full-Stack Developers are proficient in both front-end and back-end development, capable of building complete applications.",
-                technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Angular", "Vue.js", "Node.js (Express.js)", "Python (Django, Flask)", "Java (Spring, Spring Boot)", ".NET (C#, ASP.NET)", "SQL", "NoSQL Databases (MongoDB, Cassandra)", "Cloud Services (AWS, Azure, GCP)", "RESTful APIs", "GraphQL", "Docker", "Kubernetes", "CI/CD", "Testing Frameworks", "Version Control (Git)", "Agile Methodologies", "Web Security", "Database Design", "Server Administration", "API Design", "Data Structures", "Algorithms", "Microservices", "Message Queues (Kafka, RabbitMQ)", "Caching (Redis, Memcached)", "Load Balancing"]
+                technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Angular", "Vue.js", "Node.js (Express.js)", "Python (Django, Flask)", "Java (Spring, Spring Boot)", ".NET (C#, ASP.NET)", "SQL", "NoSQL Databases (MongoDB, Cassandra)", "Cloud Services (AWS, Azure, GCP)", "RESTful APIs", "GraphQL", "Docker", "Kubernetes", "CI/CD", "Testing Frameworks", "Version Control (Git)", "Agile Methodologies", "Web Security", "Database Design", "Server Administration", "API Design", "Data Structures", "Algorithms", "Microservices", "Message Queues (Kafka, RabbitMQ)", "Caching (Redis, Memcached)", "Load Balancing","C#", ".NET", "Microsoft Azure", "Microsoft SQL Server", "Visual Studio", "ASP.NET", "Azure DevOps", "PowerShell", "TypeScript", "Blazor"]
             },
             "ml": {
                 definition: "Machine Learning Engineers develop and deploy machine learning models to solve complex problems.",
-                technologies: ["Python", "R", "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost", "LightGBM", "Hugging Face Transformers", "Deep Learning", "Data Engineering", "Cloud ML Services (AWS SageMaker, Azure ML, Google AI Platform)", "Natural Language Processing (NLP)", "Computer Vision (OpenCV)", "Machine Learning Algorithms", "Data Preprocessing", "Model Deployment (Kubernetes, Docker)", "Data Visualization", "Big Data Technologies (Spark, Hadoop)", "Data Modeling", "Statistical Analysis", "Reinforcement Learning", "Experiment Tracking (MLflow, Weights & Biases)", "Model Interpretability", "Ethical AI"]
+                technologies: ["Python", "R", "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost", "LightGBM", "Hugging Face Transformers", "Deep Learning", "Data Engineering", "Cloud ML Services (AWS SageMaker, Azure ML, Google AI Platform)", "Natural Language Processing (NLP)", "Computer Vision (OpenCV)", "Machine Learning Algorithms", "Data Preprocessing", "Model Deployment (Kubernetes, Docker)", "Data Visualization", "Big Data Technologies (Spark, Hadoop)", "Data Modeling", "Statistical Analysis", "Reinforcement Learning", "Experiment Tracking (MLflow, Weights & Biases)", "Model Interpretability", "Ethical AI","Microsoft Azure Machine Learning", "Azure Databricks", "Power BI", ".NET", "C#", "ML.NET", "Cognitive Services"]
             },
             "mobilearch": {
                 definition: "Mobile Architects design the overall structure and architecture of mobile applications, ensuring they are scalable, reliable, and secure.",
-                technologies: ["Mobile Development Frameworks (React Native, Flutter, Swift (iOS), Kotlin (Android), Xamarin)", "Cloud Services (AWS, Azure, GCP)", "Mobile Security Protocols", "Performance Optimization", "RESTful APIs", "Mobile App Development", "Mobile Architecture", "Cloud Computing", "Security", "Performance", "Design Patterns", "Code Optimization", "Apple Ecosystem (iOS)", "Android Ecosystem", "Hybrid App Development", "Microservices", "Mobile DevOps", "Mobile Analytics", "Mobile Testing Strategies", "Push Notifications", "Location Services", "Data Storage (SQLite, Realm)", "Offline Support"]
+                technologies: ["Mobile Development Frameworks (React Native, Flutter, Swift (iOS), Kotlin (Android), Xamarin)", "Cloud Services (AWS, Azure, GCP)", "Mobile Security Protocols", "Performance Optimization", "RESTful APIs", "Mobile App Development", "Mobile Architecture", "Cloud Computing", "Security", "Performance", "Design Patterns", "Code Optimization", "Apple Ecosystem (iOS)", "Android Ecosystem", "Hybrid App Development", "Microservices", "Mobile DevOps", "Mobile Analytics", "Mobile Testing Strategies", "Push Notifications", "Location Services", "Data Storage (SQLite, Realm)", "Offline Support","Xamarin", ".NET", "C#", "Microsoft Azure", "Visual Studio App Center", "PowerApps"]
             },
             "mobileengineer": {
                 definition: "Mobile Engineers develop high-performance, user-friendly applications for smartphones and tablets.",
-                technologies: ["iOS (Swift, Objective-C)", "Android (Java, Kotlin)", "React Native", "Flutter", "Mobile UI/UX Design", "Mobile Testing", "Mobile App Development", "Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "RESTful APIs", "Mobile Databases (SQLite, Realm)", "Version Control (Git)", "CI/CD for Mobile (Fastlane, Bitrise)", "Push Notifications (Firebase Cloud Messaging, APNs)", "Mobile Analytics (Firebase, Amplitude, Mixpanel)", "Mobile Security", "Mobile Performance Optimization", "UI/UX Best Practices", "Offline Data Synchronization", "Location Services", "Background Processing", "Deep Linking"]
+                technologies: ["iOS (Swift, Objective-C)", "Android (Java, Kotlin)", "React Native", "Flutter", "Mobile UI/UX Design", "Mobile Testing", "Mobile App Development", "Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "RESTful APIs", "Mobile Databases (SQLite, Realm)", "Version Control (Git)", "CI/CD for Mobile (Fastlane, Bitrise)", "Push Notifications (Firebase Cloud Messaging, APNs)", "Mobile Analytics (Firebase, Amplitude, Mixpanel)", "Mobile Security", "Mobile Performance Optimization", "UI/UX Best Practices", "Offline Data Synchronization", "Location Services", "Background Processing", "Deep Linking","Xamarin", ".NET", "C#", "Visual Studio", "Visual Studio App Center", "PowerApps"]
             },
             "mobiletester": {
                 definition: "Mobile Testers ensure the quality and performance of mobile applications through rigorous testing.",
-                technologies: ["Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "UI Testing", "Performance Testing", "Automated Testing", "Mobile Device Management (MDM)", "Mobile App Testing", "Test Automation", "Performance Testing Tools (JMeter, LoadRunner)", "Security Testing", "Test Design Methodologies", "Mobile Device Testing Methodologies", "Usability Testing", "Accessibility Testing", "Mobile Network Testing", "Cross-Platform Testing", "Continuous Integration", "TestRail", "Zephyr", "Bug Reporting (Jira)", "Crash Reporting", "Beta Testing"]
+                technologies: ["Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "UI Testing", "Performance Testing", "Automated Testing", "Mobile Device Management (MDM)", "Mobile App Testing", "Test Automation", "Performance Testing Tools (JMeter, LoadRunner)", "Security Testing", "Test Design Methodologies", "Mobile Device Testing Methodologies", "Usability Testing", "Accessibility Testing", "Mobile Network Testing", "Cross-Platform Testing", "Continuous Integration", "TestRail", "Zephyr", "Bug Reporting (Jira)", "Crash Reporting", "Beta Testing","Visual Studio App Center", "Azure DevOps", "TestComplete"]
             },
             "productdesigner": {
                 definition: "Product Designers create intuitive and engaging user interfaces, focusing on usability and user satisfaction.",
-                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma, Adobe XD)", "Prototyping (InVision, Marvel, Proto.io)", "User Research", "Design Thinking", "Interaction Design", "Visual Design", "Usability Testing", "User Flows", "Information Architecture", "Design Systems", "Accessibility (WCAG)", "A/B Testing", "User Personas", "Journey Mapping", "Analytics", "Mobile Design", "Web Design", "User Interface Design", "User-Centered Design Principles", "Heuristic Evaluation", "Cognitive Walkthrough"]
+                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma, Adobe XD)", "Prototyping (InVision, Marvel, Proto.io)", "User Research", "Design Thinking", "Information Architecture", "Interaction Design", "Visual Design", "Usability Testing", "User Flows", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "A/B Testing", "User Personas", "Journey Mapping", "Analytics", "Mobile Design", "Web Design", "User Interface Design", "User-Centered Design Principles", "Heuristic Evaluation", "Cognitive Walkthrough","Microsoft Power BI"]
             },
             "productmanager": {
                 definition: "Product Managers define product strategy, prioritize features, and guide development teams to deliver successful products.",
-                technologies: ["Agile Methodologies (Scrum, Kanban)", "Market Research", "Competitive Analysis", "Product Roadmapping (Jira, Aha!)", "User Research", "Data Analysis", "Stakeholder Management", "Prioritization Techniques (MoSCoW, RICE, Impact Mapping)", "Product Analytics (Mixpanel, Amplitude)", "User Story Mapping", "A/B Testing", "Market Segmentation", "Product Strategy", "Communication", "Leadership", "Design Thinking", "Product Life Cycle Management", "Financial Modeling", "User Personas", "Product Marketing", "Pricing Strategies"]
+                technologies: ["Agile Methodologies (Scrum, Kanban)", "Market Research", "Competitive Analysis", "Product Roadmapping (Jira, Aha!)", "User Research", "Data Analysis", "Stakeholder Management", "Prioritization Techniques (MoSCoW, RICE, Impact Mapping)", "Product Analytics (Mixpanel, Amplitude)", "User Story Mapping", "A/B Testing", "Market Segmentation", "Product Strategy", "Communication", "Leadership", "Design Thinking", "Product Life Cycle Management", "Financial Modeling", "User Personas", "Product Marketing", "Pricing Strategies","Azure DevOps", "Microsoft Project", "Microsoft Office", "Power BI"]
             },
             "productowner": {
                 definition: "Product Owners represent the customer's voice, prioritize features, and manage the product backlog in Agile development environments.",
-                technologies: ["Agile Methodologies (Scrum, Kanban)", "User Story Writing", "Product Backlog Management", "Stakeholder Communication", "Sprint Planning", "User Acceptance Testing (UAT)", "Requirements Elicitation", "Backlog Refinement", "Release Planning", "Agile Metrics", "Product Vision", "Market Awareness", "Technical Understanding", "Communication Skills", "Prioritization", "Decision-Making", "Jira", "Confluence", "User Story Splitting", "Acceptance Criteria", "Value Stream Mapping"]
+                technologies: ["Agile Methodologies (Scrum, Kanban)", "User Story Writing", "Product Backlog Management", "Stakeholder Communication", "Sprint Planning", "User Acceptance Testing (UAT)", "Requirements Elicitation", "Backlog Refinement", "Release Planning", "Agile Metrics", "Product Vision", "Market Awareness", "Technical Understanding", "Communication Skills", "Prioritization", "Decision-Making", "Jira", "Confluence", "User Story Splitting", "Acceptance Criteria", "Value Stream Mapping","Azure DevOps", "Microsoft Teams", "Microsoft Office"]
             },
             "qa": {
                 definition: "QA Automation Engineers develop and maintain automated tests to ensure software quality and reliability.",
-                technologies: ["Selenium", "JUnit", "TestNG", "CI/CD (Jenkins, GitLab CI, Azure DevOps, CircleCI)", "Scripting Languages (Python, JavaScript, Groovy)", "Robot Framework", "Cypress", "TestCafe", "Jest", "Mocha", "Chai", "Cucumber (BDD)", "API Testing (REST-assured, Postman, Karate DSL)", "Performance Testing (JMeter, Gatling, LoadView)", "Mobile Testing (Appium)", "Database Testing", "Security Testing (OWASP ZAP, Burp Suite)", "Code Coverage (JaCoCo, SonarQube)", "Test Management Tools (TestRail, Zephyr)", "Service Virtualization"]
+                technologies: ["Selenium", "JUnit", "TestNG", "CI/CD (Jenkins, GitLab CI, Azure DevOps, CircleCI)", "Scripting Languages (Python, JavaScript, Groovy)", "Robot Framework", "Cypress", "TestCafe", "Jest", "Mocha", "Chai", "Cucumber (BDD)", "API Testing (REST-assured, Postman, Karate DSL)", "Performance Testing (JMeter, Gatling, LoadView)", "Mobile Testing (Appium)", "Database Testing", "Security Testing (OWASP ZAP, Burp Suite)", "Code Coverage (JaCoCo, SonarQube)", "Test Management Tools (TestRail, Zephyr)", "Service Virtualization","C#", ".NET", "Microsoft Visual Studio", "Azure DevOps", "Microsoft Test Manager", "Selenium"]
             },
             "qalead": {
                 definition: "QA Leads manage QA teams, define testing strategies, and ensure software meets quality standards.",
-                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", "Test Automation", "Performance Testing", "Security Testing", "Usability Testing", "Accessibility Testing", "Mobile Testing", "API Testing", "Database Testing", "Code Review", "Continuous Integration", "Test Strategy", "Mentoring", "Performance Management", "Vendor Management"]
+                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", "Test Automation", "Performance Testing", "Security Testing", "Usability Testing", "Accessibility Testing", "Mobile Testing", "API Testing", "Database Testing", "Code Review", "Continuous Integration", "Test Strategy", "Mentoring", "Performance Management", "Vendor Management","Microsoft Test Manager", "Azure DevOps", "Microsoft Project", "Microsoft Office", "Power BI"]
             },
             "qamanual": {
                 definition: "QA Manual Testers perform manual testing to identify bugs and ensure software quality through direct interaction with the application.",
-                technologies: ["Test Case Design", "Exploratory Testing", "Bug Reporting (Jira, Bugzilla)", "Usability Testing", "Accessibility Testing", "Security Testing", "Performance Testing", "Mobile Testing", "Cross-Browser Testing", "Test Plans", "Test Execution", "Defect Management", "Test Documentation", "Agile Testing", "Black Box Testing", "White Box Testing", "Gray Box Testing", "Test Environments", "Test Data Management", "Requirement Traceability"]
+                technologies: ["Test Case Design", "Exploratory Testing", "Bug Reporting (Jira, Bugzilla)", "Usability Testing", "Accessibility Testing", "Security Testing", "Performance Testing", "Mobile Testing", "Cross-Browser Testing", "Test Plans", "Test Execution", "Defect Management", "Test Documentation", "Agile Testing", "Black Box Testing", "White Box Testing", "Gray Box Testing", "Test Environments", "Test Data Management", "Requirement Traceability","Microsoft Test Manager", "Azure DevOps", "Microsoft Office"]
             },
             "releasemanager": {
                 definition: "Release Managers coordinate the deployment of software releases, ensuring smooth and efficient transitions.",
-                technologies: ["Release Management Tools (Jenkins, Azure DevOps, GitLab CI, Octopus Deploy)", "CI/CD Pipelines", "Version Control (Git)", "Deployment Automation (Ansible, Chef, Puppet, Terraform)", "Change Management", "Risk Management", "Release Planning", "Deployment Strategies (Blue-Green, Canary, Rolling)", "Rollback Procedures", "Monitoring (Prometheus, Grafana, Splunk)", "Stakeholder Communication", "Environment Management", "Configuration Management", "Version Control", "Automation", "Cloud Deployment", "Compliance", "Incident Management"]
+                technologies: ["Release Management Tools (Jenkins, Azure DevOps, GitLab CI, Octopus Deploy)", "CI/CD Pipelines", "Version Control (Git)", "Deployment Automation (Ansible, Chef, Puppet, Terraform)", "Change Management", "Risk Management", "Release Planning", "Deployment Strategies (Blue-Green, Canary, Rolling)", "Rollback Procedures", "Monitoring (Prometheus, Grafana, Splunk)", "Stakeholder Communication", "Environment Management", "Configuration Management", "Version Control", "Automation", "Cloud Deployment", "Compliance", "Incident Management","Azure DevOps", "PowerShell", ".NET", "Azure Pipelines"]
             },
             "salesforce": {
                 definition: "Salesforce Architects design and implement custom Salesforce solutions, empowering businesses to manage customer relationships effectively.",
-                technologies: ["Salesforce Platform (Sales Cloud, Service Cloud, Marketing Cloud, CPQ)", "Apex", "Visualforce", "Lightning Components (Aura, LWC)", "Salesforce Lightning Design System (SLDS)", "Salesforce DX", "Salesforce APIs (REST, SOAP, Bulk)", "Salesforce Data Model", "Salesforce Security Model", "SOQL and SOSL", "Integration Patterns", "Data Migration", "Data Governance", "Salesforce Certifications", "Einstein Analytics", "Tableau CRM", "Community Cloud", "Experience Cloud", "Field Service"]
+                technologies: ["Salesforce Platform (Sales Cloud, Service Cloud, Marketing Cloud, CPQ)", "Apex", "Visualforce", "Lightning Components (Aura, LWC)", "Salesforce Lightning Design System (SLDS)", "Salesforce DX", "Salesforce APIs (REST, SOAP, Bulk)", "Salesforce Data Model", "Salesforce Security Model", "SOQL and SOSL", "Integration Patterns", "Data Migration", "Data Governance", "Salesforce Certifications", "Einstein Analytics", "Tableau CRM", "Community Cloud", "Experience Cloud", "Field Service", "Microsoft Dynamics 365", "Microsoft Power Platform"]
             },
             "scrummaster": {
                 definition: "Scrum Masters facilitate Scrum teams, removing impediments and ensuring adherence to Agile principles.",
-                technologies: ["Scrum Framework", "Agile Methodologies (Kanban, XP, SAFe)", "Facilitation Techniques", "Conflict Resolution", "Jira", "Confluence", "Trello", "Kanban Boards", "Lean Principles", "Agile Metrics", "Servant Leadership", "Coaching", "Mentoring", "Communication", "Team Building", "Agile Ceremonies (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)", "Scaled Agile Framework (SAFe)", "Kanban Metrics", "Release Train Engineer"]
+                technologies: ["Scrum Framework", "Agile Methodologies (Kanban, XP, SAFe)", "Facilitation Techniques", "Conflict Resolution", "Jira", "Confluence", "Trello", "Kanban Boards", "Lean Principles", "Agile Metrics", "Servant Leadership", "Coaching", "Mentoring", "Communication", "Team Building", "Agile Ceremonies (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)", "Scaled Agile Framework (SAFe)", "Kanban Metrics", "Release Train Engineer","Azure DevOps", "Microsoft Teams", "Microsoft Office", "Microsoft Planner"]
             },
             "sdet": {
                 definition: "SDETs develop and test software, ensuring quality and reliability throughout the software development lifecycle.",
-                technologies: ["Java", "Python", "JavaScript", "C#", "Selenium", "TestNG", "JUnit", "Git", "Jenkins", "REST Assured", "JMeter", "Appium", "API Testing", "Code Coverage (JaCoCo, SonarQube)", "Performance Testing", "Security Testing (OWASP ZAP, Burp Suite)", "Agile Methodologies", "Test-Driven Development (TDD)", "Behavior-Driven Development (BDD)", "Continuous Integration", "Continuous Delivery", "Test Automation", "Black Box Testing", "White Box Testing", "Gray Box Testing", "Performance Engineering", "Chaos Engineering"]
+                technologies: ["Java", "Python", "JavaScript", "C#", "Selenium", "TestNG", "JUnit", "Git", "Jenkins", "REST Assured", "JMeter", "Appium", "API Testing", "Code Coverage (JaCoCo, SonarQube)", "Performance Testing", "Security Testing (OWASP ZAP, Burp Suite)", "Agile Methodologies", "Test-Driven Development (TDD)", "Behavior-Driven Development (BDD)", "Continuous Integration", "Continuous Delivery", "Test Automation", "Black Box Testing", "White Box Testing", "Gray Box Testing", "Performance Engineering", "Chaos Engineering","C#", ".NET", "Microsoft Visual Studio", "Azure DevOps", "Microsoft Test Manager", "Selenium"]
             },
-             "techlead": {
+            "techlead": {
                 definition: "Technical Leads guide development teams, providing technical expertise and leadership.",
-                technologies: ["Software Architecture", "System Design", "Coding (Java, Python, C++, C#, Go, JavaScript)", "Code Review", "Mentoring", "Leadership", "Communication", "Problem-Solving", "Agile Methodologies", "Design Patterns", "Scalability", "Performance Optimization", "Cloud Computing (AWS, Azure, GCP)", "Database Design", "API Design", "Version Control (Git)", "Continuous Integration", "Continuous Delivery", "Microservices", "Distributed Systems", "Security", "Technical Debt Management"]
+                technologies: ["Software Architecture", "System Design", "Coding (Java, Python, C++, C#, Go, JavaScript)", "Code Review", "Mentoring", "Leadership", "Communication", "Problem-Solving", "Agile Methodologies", "Design Patterns", "Scalability", "Performance Optimization", "Cloud Computing (AWS, Azure, GCP)", "Database Design", "API Design", "Version Control (Git)", "Continuous Integration", "Continuous Delivery", "Microservices", "Distributed Systems", "Security", "Technical Debt Management","C#", ".NET", "Microsoft Azure", "Visual Studio", "Azure DevOps", "PowerShell"]
             },
-             "testlead": {
+            "testlead": {
                 definition: "Test Leads manage test teams, define testing strategies, and ensure software quality.",
-                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", "Test Automation", "Performance Testing", "Security Testing", "Usability Testing", "Accessibility Testing", "Mobile Testing", "API Testing", "Database Testing", "Code Review", "Continuous Integration", "Test Strategy", "Mentoring", "Vendor Management", "Test Environment Management", "Test Data Management", "Performance Monitoring"]
+                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", "Test Automation", "Performance Testing", "Security Testing", "Usability Testing", "Accessibility Testing", "Mobile Testing", "API Testing", "Database Testing", "Code Review", "Continuous Integration", "Test Strategy", "Mentoring", "Vendor Management", "Test Environment Management", "Test Data Management", "Performance Monitoring","Microsoft Test Manager", "Azure DevOps", "Microsoft Project", "Microsoft Office", "Power BI"]
             },
               "usabilitytester": {
                 definition: "Usability Test Engineers conduct usability testing to ensure software is easy to use and meets user needs.",

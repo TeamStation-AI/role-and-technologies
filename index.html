@@ -20,7 +20,7 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 30px;
-            background-color: #0c1020;
+            background-color: #1a2035;
             border-radius: 8px;
             box-sizing: border-box;
         }
@@ -39,11 +39,12 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #ddd;
         }
 
         select {
-            width: 100%; /* Responsive width */
-            max-width: 350px; /* Limit the maximum width */
+            width: 80%;
+            max-width: 350px;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -51,7 +52,7 @@
             background-color: #333;
             color: white;
             box-sizing: border-box;
-            appearance: none; /* Remove default arrow */
+            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
@@ -80,11 +81,13 @@
             margin-bottom: 5px;
         }
 
-         /* Responsive adjustments */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
+        #techList li:before {
+            content: "\2022";  /* Bullet character */
+            color: #66b3ff;  /* Bullet color */
+            font-weight: bold; /* Make the bullet bold */
+            display: inline-block; /* Needed to add space */
+            width: 1em; /* Also needed for space (adjust if necessary) */
+            margin-left: -1em; /* Offset so bullet aligns with text */
         }
     </style>
 </head>
@@ -107,7 +110,7 @@
             <option value="dba">DBA Engineer</option>
             <option value="devops">DevOps Engineer</option>
             <option value="devsec">DevSec Engineer</option>
-            <option value="ecommerce">eCommerce Certified Specialist</option>
+            <option value="ecommerce">eCommerce Specialist</option>
             <option value="evangelist">DevOps Evangelist</option>
             <option value="experienceassurance">Experience Assurance Engineer</option>
             <option value="frontend">Front-End Developer</option>
@@ -144,177 +147,179 @@
 
     <script>
         const roleDefinitions = {
-            "aiprompt": {
-                definition: "AI Prompt Engineers are the whisperers to the machines, crafting the perfect phrases to coax out genius from artificial intelligence. They're like language alchemists, transforming simple text into powerful commands.",
-                technologies: ["Natural Language Processing", "Large Language Models (LLMs)", "Python", "Prompt Engineering Techniques", "Generative AI", "API Integration", "Cloud Platforms (AWS, Azure, GCP)", "Prompt Engineering", " Langchain", " Vector Databases", " Prompt Engineering Techniques","JavaScript", "C++", "PyTorch", "TensorFlow", "CUDA"," Data mining", "Data collection"," Data analysis", " Chatbots", " Artificial intelligence"]
+           "aiprompt": {
+                definition: "AI Prompt Engineers are specialists in crafting effective prompts for large language models, optimizing AI outputs for various applications.",
+                technologies: ["Python", "LangChain", "Transformers", "GPT models (GPT-3, GPT-4)", "Prompt Engineering Techniques", "Vector Databases (e.g., Pinecone, Chroma)", "API Integration (OpenAI API)", "Cloud Platforms (AWS, Azure, GCP)", "Jupyter Notebooks", "Prompt Versioning Tools", "Adversarial Prompting", "Hallucination Mitigation", "Chain of Thought Prompting", "Few-Shot Learning", "Zero-Shot Learning"]
             },
             "architect": {
-                definition: "Software Architects are the master builders of the digital world, designing the blueprints for complex systems. They're the Gandalf of the code, guiding the fellowship towards a stable and scalable solution.",
-                technologies: ["Cloud Architecture", "Design Patterns", "Microservices", "UML", "Various Programming Languages", "System Design", "Scalability", "Security", " Architectural Design", " Enterprise Architecture", "Solution Architecture", " Technical Leadership", " AWS","Azure","Google Cloud"," Docker","Kubernetes","Java"," Python","C++", "C#", ".NET", "SQL", "UML"," Software construction"," Business modeling"," Interpersonal skills"]
+                definition: "Software Architects design and oversee the implementation of software systems, ensuring they meet scalability, security, and performance requirements.",
+                technologies: ["Cloud Architecture (AWS, Azure, GCP)", "Microservices", "API Design (REST, GraphQL)", "Design Patterns", "UML", "System Design", "Scalability", "Security", "DevOps Practices", "Containerization (Docker, Kubernetes)", "IaC (Terraform, CloudFormation)", "Programming Languages (Java, Python, C#)", "Database Technologies (SQL, NoSQL)", "Event-Driven Architecture", "Message Queues (Kafka, RabbitMQ)"]
             },
             "backend": {
-                definition: "Back-End Developers are the unseen heroes of the web, crafting the server-side logic and databases that power applications. They're the ninjas of the code, working tirelessly behind the scenes to keep everything running smoothly.",
-                technologies: ["Node.js", "Python", "Java", "SQL", "NoSQL Databases (MongoDB, Cassandra)", "APIs (REST, GraphQL)", "Serverless Architecture", "Cloud Computing", "Message Queues (Kafka, RabbitMQ)", "Authentication", "Authorization", " Testing Frameworks", " Docker", "Kubernetes", " Jenkins", " GitLab CI", " C++", "C#", ".NET", "PHP"," Redis","API Integration","Message queueing"," Database creation"
-      , " API testing"]
+                definition: "Back-End Developers build and maintain the server-side logic and databases that power applications, ensuring data is processed efficiently and securely.",
+                technologies: ["Node.js", "Python (Django, Flask)", "Java (Spring Boot)", "Databases (PostgreSQL, MySQL, MongoDB)", "APIs (REST, GraphQL)", "Authentication & Authorization (OAuth, JWT)", "Serverless Computing", "Message Queues (Kafka, RabbitMQ)", "Docker", "Kubernetes", "CI/CD Pipelines (Jenkins, GitLab CI)", "Cloud Platforms (AWS, Azure, GCP)", "Testing Frameworks (JUnit, pytest)", "Caching Strategies (Redis, Memcached)"]
             },
             "bi": {
-                definition: "Business Intelligence Analysts are the detectives of the data world, uncovering insights and trends that drive strategic decisions. They transform raw data into actionable knowledge, helping businesses make smarter choices.",
-                technologies: ["SQL", "Data Warehousing (Snowflake, Redshift)", "ETL Processes", "Tableau", "Power BI", "Data Mining", "Statistical Analysis", " Data modeling", " Reporting", "Data visualization", " Data governance", "Data lineage", "OLAP", "R", "Python", "Dashboards"," Data Mining", "Data reporting"," Google Data Studio", "Machine Learning", "Data collection"]
+                definition: "Business Intelligence Analysts analyze data to identify trends and insights that drive strategic business decisions, using visualization and reporting tools.",
+                technologies: ["SQL", "Data Warehousing (Snowflake, Redshift)", "ETL Processes (Apache Airflow, Informatica)", "Tableau", "Power BI", "Data Mining", "Statistical Analysis", "Data Modeling", "Reporting", "Data Visualization", "Data Governance", "OLAP", "R", "Python (Pandas, NumPy)", "Dashboards", "Data Cleaning", "Data Integration", "Predictive Analytics"]
             },
             "businessanalyst": {
-                definition: "Business Analysts are the problem-solvers of the business world, identifying needs, defining requirements, and bridging the gap between stakeholders and technical teams. They are translators of business jargon into actionable specs.",
-                technologies: ["Requirements Gathering", "Process Modeling (BPMN)", "UML", "Agile Methodologies", "Stakeholder Analysis", "Business Process Improvement", " Agile", " Waterfall", " Business process modeling", " Requirements elicitation", " Business case development", " Process Optimization", " Wireframing Tools", " Communication", "Critical Thinking" , "Analysis and Redesign"]
+                definition: "Business Analysts identify business needs, define requirements, and facilitate communication between stakeholders and technical teams.",
+                technologies: ["Requirements Gathering", "Process Modeling (BPMN)", "UML", "Agile Methodologies", "Stakeholder Analysis", "Business Process Improvement", "SWOT Analysis", "Gap Analysis", "User Stories", "Use Cases", "Wireframing Tools (Balsamiq, Axure)", "Jira", "Confluence", "Communication Skills", "Analytical Skills", "Problem-Solving Skills"]
             },
             "cloudengineer": {
-                definition: "Cloud Engineers are the architects of the digital sky, building and managing the infrastructure that powers modern applications in the cloud. They ensure scalability, reliability, and cost-effectiveness in the ever-expanding world of cloud computing.",
-                technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Cloud Security", "Networking", "Serverless Computing", " IaC", " Automation", " Monitoring", " Cloud Deployment", " Load Balancing", " Serverless Architecture", " AWS CloudFormation"," Data governance"," Networking", " Python", " Shell scripting"," Linux"," Docker"," Red Hat"]
+                definition: "Cloud Engineers build, manage, and maintain cloud infrastructure, ensuring scalability, reliability, and security.",
+                technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Ansible", "Cloud Security", "Networking", "Serverless Computing", "Infrastructure as Code (IaC)", "Automation", "Monitoring (Prometheus, Grafana)", "Cloud Deployment", "Load Balancing", "IAM", "Cloud Networking (VPC, VPN)", "Disaster Recovery", "Cost Optimization"]
             },
             "crossplatform": {
-                definition: "Cross-Platform Designers are the masters of adaptation, creating user interfaces that seamlessly transition across different devices and platforms. They are chameleons of the design world, ensuring a consistent and engaging experience everywhere.",
-                technologies: ["React Native", "Flutter", "Xamarin", "Responsive Design", "UI/UX Principles", "Mobile Design Patterns", "Accessibility Guidelines", " Cross-platform development", " UI frameworks", " Design patterns", " Performance optimization", " UI Testing", " UX testing"," Agile", " Design thinking", " Usability testing"]
+                definition: "Cross-Platform Designers create user interfaces that function seamlessly across different devices and operating systems.",
+                technologies: ["React Native", "Flutter", "Xamarin", "Responsive Design", "UI/UX Principles", "Mobile Design Patterns", "Accessibility Guidelines (WCAG)", "Cross-Platform Development", "UI Frameworks", "Design Systems", "Performance Optimization", "UI Testing", "UX Testing", "Agile Methodologies", "Design Thinking", "Usability Testing", "Prototyping Tools (Figma, Adobe XD)"]
             },
             "dataengineer": {
-                definition: "Data Engineers are the builders of the data pipeline, constructing the infrastructure that transports and transforms raw data into usable information. They ensure that data flows smoothly and reliably from source to destination.",
-                technologies: ["ETL Tools (Apache Kafka, Apache Spark)", "Data Warehousing (Snowflake, Amazon Redshift)", "Cloud Data Services (AWS Glue, Azure Data Factory)", "Data Modeling", "Data Governance", "Database Management", "Data pipelining", " Data integration", " Cloud computing", " Big data technologies", "Hadoop", " Cloud Computing Services","Programming"," Linux", " Bash", " Python","SQL"]
+                definition: "Data Engineers build and maintain the infrastructure for data storage, processing, and analysis, ensuring data is accessible and reliable.",
+                technologies: ["ETL Tools (Apache Kafka, Apache Spark)", "Data Warehousing (Snowflake, Amazon Redshift)", "Cloud Data Services (AWS Glue, Azure Data Factory)", "Data Modeling", "Data Governance", "Database Management (SQL, NoSQL)", "Data Pipelines", "Data Integration", "Cloud Computing", "Big Data Technologies (Hadoop, Hive, Pig)", "Data Streaming (Apache Flink)", "Python", "SQL", "Shell Scripting", "Linux", "Data Lake", "Data Security"]
             },
             "datascientist": {
-                definition: "Data Scientists are the fortune tellers of the data world, using algorithms and statistical models to predict future trends and behaviors. They are wizards of data, turning raw numbers into actionable insights.",
-                technologies: ["Python", "R", "Machine Learning (Scikit-learn, TensorFlow)", "Statistical Modeling", "Data Visualization (Tableau, Matplotlib)", "Deep Learning", " Data mining", " Data analysis", " Machine learning algorithms", " Statistical modeling", " Predictive analytics", "Data visualization", " Data Modeling", " A/B Testing", "Neural Networks", " Data Wrangling", "Data Architecture"]
+                definition: "Data Scientists use statistical modeling and machine learning techniques to analyze data and extract insights for decision-making.",
+                technologies: ["Python", "R", "Machine Learning (Scikit-learn, TensorFlow, PyTorch)", "Statistical Modeling", "Data Visualization (Tableau, Matplotlib, Seaborn)", "Deep Learning", "Natural Language Processing (NLTK, SpaCy)", "Data Mining", "Data Analysis", "Predictive Analytics", "Data Modeling", "A/B Testing", "Big Data Technologies (Spark, Hadoop)", "Cloud Platforms (AWS, Azure, GCP)", "Jupyter Notebooks", "Experiment Tracking (MLflow)"]
             },
             "datatester": {
-                definition: "Data Testers are the quality control specialists of the data world, ensuring that data is accurate, consistent, and reliable. They are the guardians of data integrity, protecting businesses from bad decisions based on flawed information.",
-                technologies: ["SQL", "Data Validation Techniques", "ETL Testing", "Data Quality Metrics", "Data Profiling", "Data Governance", "Data Lineage", " Test automation", " Defect tracking", " Test planning", " Database testing", " API testing", " Performance testing", " Shell scripting", "Data Analytics", " Data Security"," Data Storage"]
+                definition: "Data Testers ensure the accuracy, consistency, and reliability of data through rigorous testing and validation.",
+                technologies: ["SQL", "Data Validation Techniques", "ETL Testing", "Data Quality Metrics", "Data Profiling", "Data Governance", "Data Lineage", "Test Automation", "Defect Tracking (Jira)", "Test Planning", "Database Testing", "API Testing", "Performance Testing", "Shell Scripting", "Data Analytics", "Data Security", "ETL Testing Tools", "Data Warehouse Testing", "Big Data Testing"]
             },
             "dba": {
-                definition: "DBA Engineers are the guardians of the database kingdom, ensuring data is stored securely, efficiently, and is always available when needed. They're the protectors of the data realm, defending against corruption and unauthorized access.",
-                technologies: ["SQL", "Database Administration (MySQL, PostgreSQL, Oracle)", "Performance Tuning", "Backup and Recovery", "Security", "Replication", "Clustering", " Database security", " Database monitoring", "Database optimization", " Backup and recovery", " PowerShell", " Data migration techniques"," Data Analytics"," High Availablity SetUp"]
+                definition: "DBA Engineers manage and maintain database systems, ensuring data integrity, performance, and security.",
+                technologies: ["SQL", "Database Administration (MySQL, PostgreSQL, Oracle, SQL Server)", "Performance Tuning", "Backup and Recovery", "Security", "Replication", "Clustering", "Database Monitoring", "Database Optimization", "Data Migration", "High Availability", "Disaster Recovery", "Database Security", "SQL Tuning", "Cloud Database Services (AWS RDS, Azure SQL Database)", "Database Design", "Data Modeling"]
             },
             "devops": {
-                definition: "DevOps Engineers are the workflow wizards of the IT world, automating the software delivery process and bridging the gap between development and operations. They're the conductors of the software symphony, ensuring that every instrument plays in harmony.",
-                technologies: ["CI/CD (Jenkins, GitLab CI)", "Automation Tools (Ansible, Chef, Puppet)", "Cloud Platforms (AWS, Azure, GCP)", "Containerization (Docker, Kubernetes)", "Infrastructure as Code (Terraform, CloudFormation)", " Continuous integration", " Continuous delivery", " Cloud computing", " Infrastructure automation", " Monitoring and logging"," Load balancing"," Server Administration"," Scripting Languaages"]
+                definition: "DevOps Engineers automate and streamline software development and deployment processes, fostering collaboration between development and operations teams.",
+                technologies: ["CI/CD (Jenkins, GitLab CI, CircleCI)", "Automation Tools (Ansible, Chef, Puppet)", "Cloud Platforms (AWS, Azure, GCP)", "Containerization (Docker, Kubernetes)", "Infrastructure as Code (Terraform, CloudFormation)", "Monitoring (Prometheus, Grafana, ELK Stack)", "Configuration Management", "Scripting (Python, Bash)", "Version Control (Git)", "Networking", "Security", "Cloud Networking (VPC)", "Load Balancing", "Server Administration"]
             },
             "devsec": {
-                definition: "DevSec Engineers are the security guardians of the software world, integrating security practices into every stage of the development lifecycle. They're the knights of the digital realm, protecting applications from threats and vulnerabilities.",
-                technologies: ["Security Auditing (OWASP ZAP)", "Penetration Testing (Metasploit)", "Vulnerability Scanning (Nessus)", "Security Automation", "Cloud Security", "Application Security", " Threat modeling", " Security testing", " Compliance", " Risk management", " Cloud security", " Authentication", " Authorization"," Intrusion detection", "Data encryption", " Incident responsing"]
+                definition: "DevSec Engineers integrate security practices into the software development lifecycle, ensuring applications are secure from design to deployment.",
+                technologies: ["Security Auditing (OWASP ZAP, Burp Suite)", "Penetration Testing (Metasploit)", "Vulnerability Scanning (Nessus, Qualys)", "Security Automation", "Cloud Security", "Application Security", "Threat Modeling", "Security Testing", "Compliance (SOC 2, GDPR, HIPAA)", "Risk Management", "IAM", "SIEM (Splunk)", "SAST (SonarQube)", "DAST", "Container Security", "IaC Security"]
             },
             "ecommerce": {
-                definition: "eCommerce Certified Specialists are the digital entrepreneurs of the web, building and managing online stores that sell products and services to the world. They're the merchants of the internet, turning clicks into customers and dreams into digital empires.",
-                technologies: ["Shopify", "Magento", "WooCommerce", "Payment Gateways (Stripe, PayPal)", "SEO", "Digital Marketing", "Customer Relationship Management (CRM)", " E-commerce platforms", " Online marketing", " Customer analytics", " Web analytics"," CRM tools (Salesforce, HubSpot)", " Social Media Marketing Techniques" ]
+                definition: "eCommerce Specialists build, manage, and optimize online stores, driving sales and enhancing customer experiences.",
+                technologies: ["Shopify", "Magento", "WooCommerce", "Payment Gateways (Stripe, PayPal)", "SEO", "Digital Marketing", "Customer Relationship Management (CRM)", "E-commerce Platforms", "Online Marketing", "Customer Analytics", "Web Analytics", "CRM Tools (Salesforce, HubSpot)", "Social Media Marketing", "Email Marketing", "Conversion Rate Optimization (CRO)", "A/B Testing", "Google Analytics", "Google Ads"]
             },
-            "evangelist": {
-                definition: "DevOps Evangelists are the cheerleaders of the IT world, promoting collaboration, automation, and continuous improvement across development and operations teams. They're the motivators of DevOps, inspiring others to embrace new ways of working.",
-                technologies: ["DevOps Principles", "Public Speaking", "Community Building", "Technical Communication", "Agile Methodologies", "Cloud Computing", " Change management", " Training", " Mentoring", " Leadership Principles"," Communication channels", " Workshop facilitating", " Content creation strategies"," Industry Expertise"]
+             "evangelist": {
+                definition: "DevOps Evangelists promote DevOps principles and practices, fostering a culture of collaboration and continuous improvement.",
+                technologies: ["DevOps Principles", "Public Speaking", "Community Building", "Technical Communication", "Agile Methodologies", "Cloud Computing", "Change Management", "Training", "Mentoring", "Leadership", "Communication Skills", "Presentation Skills", "Workshop Facilitation", "Content Creation", "Social Media", "Industry Knowledge", "Networking", "DevOps Tools (Jenkins, Docker, Kubernetes)"]
             },
-            "experienceassurance": {
-                definition: "Experience Assurance Engineers are the champions of the user, ensuring that applications deliver a seamless and satisfying experience across all devices and platforms. They're the advocates for the user, fighting for usability and delight.",
-                technologies: ["Usability Testing", "Performance Monitoring", "User Feedback Analysis", "Accessibility Standards (WCAG)", "A/B Testing", "Analytics Tools", " Usability testing", " Performance testing", " Accessibility testing", " User experience (UX)", " Performance testing metrics", " Mobile testing methodology", "A/B testing Metrics"," Cross-Browser Testing"," UI UX Methodoligies"]
+             "experienceassurance": {
+                definition: "Experience Assurance Engineers ensure applications deliver a seamless and satisfying user experience across all devices and platforms.",
+                technologies: ["Usability Testing", "Performance Monitoring", "User Feedback Analysis", "Accessibility Standards (WCAG)", "A/B Testing", "Analytics Tools (Google Analytics, Mixpanel)", "User Research", "User Flows", "Information Architecture", "Interaction Design", "Visual Design", "Usability Testing Methodologies", "Performance Testing Tools (JMeter, LoadRunner)", "Mobile Testing", "Cross-Browser Testing", "Accessibility Testing Tools"]
             },
              "frontend": {
-                definition: "Front-End Developers are the digital artists of the web, crafting visually stunning and interactive user interfaces that capture the imagination. They're the painters of the internet, turning ideas into captivating online experiences.",
-                technologies: ["HTML", "CSS", "JavaScript", "React", "Angular", "Vue.js", "Sass", "Less", "Webpack", "Babel", "jQuery", "Bootstrap", "Tailwind CSS", "Material UI", "Responsive Design", "ES6+", "DOM Manipulation", "AJAX", "GraphQL", "RESTful APIs", "WebSockets","npm", "yarn", " TypeScript"," Web Accessibility Initiative (WAI)"," Progressive Web Apps (PWAs)", " cross-browser compatibility"," Web API"," Mobile responsive Design", " UI/UX principles"]
+                definition: "Front-End Developers build user interfaces, ensuring they are visually appealing, interactive, and accessible.",
+                technologies: ["HTML", "CSS", "JavaScript", "React", "Angular", "Vue.js", "Sass", "Less", "Webpack", "Babel", "jQuery", "Bootstrap", "Tailwind CSS", "Material UI", "Responsive Design", "ES6+", "DOM Manipulation", "AJAX", "GraphQL", "RESTful APIs", "WebSockets", "npm", "yarn", "TypeScript", "Web Accessibility (WCAG)", "Progressive Web Apps (PWAs)", "Cross-Browser Compatibility", "Testing Frameworks (Jest, Mocha)"]
             },
-            "fullstack": {
-                definition: "Full-Stack Developers are the multi-talented maestros of the web, capable of building both the front-end and back-end of applications with equal skill. They're the renaissance people of the digital world, mastering all aspects of web development.",
-                technologies: ["HTML", "CSS", "JavaScript", "React", "Angular", "Vue.js", "Node.js", "Python", "Java", "SQL", "NoSQL Databases", "Cloud Services (AWS, Azure, GCP)", "RESTful APIs", "GraphQL", "Docker", "Kubernetes", " Front-end development", " Back-end development", "Database management", " Cloud computing", " Software Architecture"," Testing methodologies", "Mobile Development", "Performance Optimization"," Deployment pipeline"," Load balancing and scaling", "Server Administration"," Application security"]
+             "fullstack": {
+                definition: "Full-Stack Developers are proficient in both front-end and back-end development, capable of building complete applications.",
+                technologies: ["HTML", "CSS", "JavaScript", "React", "Angular", "Vue.js", "Node.js", "Python (Django, Flask)", "Java (Spring Boot)", "SQL", "NoSQL Databases (MongoDB, Cassandra)", "Cloud Services (AWS, Azure, GCP)", "RESTful APIs", "GraphQL", "Docker", "Kubernetes", "CI/CD", "Testing Frameworks", "Version Control (Git)", "Agile Methodologies", "Web Security", "Database Design", "Server Administration", "API Design"]
             },
             "ml": {
-                definition: "Machine Learning Engineers are the AI architects of the future, building intelligent systems that can learn, adapt, and solve complex problems. They're the innovators of the AI world, pushing the boundaries of what's possible with machine learning.",
-                technologies: ["Python", "R", "TensorFlow", "PyTorch", "Scikit-learn", "Deep Learning", "Data Engineering", "Cloud ML Services", "Natural Language Processing (NLP)", "Computer Vision", " Machine learning algorithms", " Deep learning", " Data preprocessing", " Model deployment", "Data visualization techniques", " Data Mining Methodologies", "AI Engineering", "Data Modelling", "Statistical Analysis"]
+                definition: "Machine Learning Engineers develop and deploy machine learning models to solve complex problems.",
+                technologies: ["Python", "R", "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "Deep Learning", "Data Engineering", "Cloud ML Services (AWS SageMaker, Azure ML, Google AI Platform)", "Natural Language Processing (NLP)", "Computer Vision", "Machine Learning Algorithms", "Data Preprocessing", "Model Deployment", "Data Visualization", "Big Data Technologies (Spark, Hadoop)", "Data Modeling", "Statistical Analysis", "Reinforcement Learning", "Experiment Tracking (MLflow)"]
             },
             "mobilearch": {
-                definition: "Mobile Architects are the strategists of the mobile world, designing the overall structure and architecture of mobile applications. They're the masterminds behind mobile experiences, ensuring that apps are scalable, reliable, and user-friendly.",
-                technologies: ["Mobile Development Frameworks (React Native, Flutter, Swift, Kotlin)", "Cloud Services (AWS, Azure, GCP)", "Mobile Security Protocols", "Performance Optimization", "RESTful APIs", " Mobile app development", " Mobile architecture", " Cloud computing", " Security", " Performance", " Design patterns", " Code optimization techniques", " Apple Design", " Mobile application development", " Mobile architecture components"]
+                definition: "Mobile Architects design the overall structure and architecture of mobile applications, ensuring they are scalable, reliable, and secure.",
+                technologies: ["Mobile Development Frameworks (React Native, Flutter, Swift, Kotlin)", "Cloud Services (AWS, Azure, GCP)", "Mobile Security Protocols", "Performance Optimization", "RESTful APIs", "Mobile App Development", "Mobile Architecture", "Cloud Computing", "Security", "Performance", "Design Patterns", "Code Optimization", "Apple Ecosystem (iOS)", "Android Ecosystem", "Hybrid App Development", "Microservices", "Mobile DevOps", "Mobile Analytics"]
             },
             "mobileengineer": {
-                definition: "Mobile Engineers are the code wizards of the mobile world, crafting high-performance, user-friendly applications that run seamlessly on smartphones and tablets. They're the builders of mobile experiences, turning ideas into reality on the go.",
-                technologies: ["iOS (Swift, Objective-C)", "Android (Java, Kotlin)", "React Native", "Flutter", "Mobile UI/UX Design", "Mobile Testing", " Mobile app development", " Mobile testing", " Mobile UI design", " App deployment", "UI/UX design principles", " Apple ecosystem (iOS)", "Android ecosystem", " Hybrid app development"," Apple development"]
+                definition: "Mobile Engineers develop high-performance, user-friendly applications for smartphones and tablets.",
+                technologies: ["iOS (Swift, Objective-C)", "Android (Java, Kotlin)", "React Native", "Flutter", "Mobile UI/UX Design", "Mobile Testing", "Mobile App Development", "Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "RESTful APIs", "Mobile Databases (SQLite, Realm)", "Version Control (Git)", "CI/CD for Mobile", "Push Notifications", "Mobile Analytics (Firebase, Amplitude)", "Mobile Security", "Mobile Performance Optimization", "UI/UX Best Practices"]
             },
             "mobiletester": {
-                definition: "Mobile Testers are the gatekeepers of the mobile world, ensuring that applications meet the highest standards of quality and performance. They're the guardians of mobile experiences, protecting users from bugs and glitches.",
-                technologies: ["Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "UI Testing", "Performance Testing", "Automated Testing", "Mobile Device Management (MDM)", " Mobile app testing", " Test automation", " Performance testing", " Security testing", " Test design methodologies", " Mobile device testing methodologies"," Usability test plan creation"," Accessibility testing principles", "Mobile Automation Strategies", " Mobile UI"]
+                definition: "Mobile Testers ensure the quality and performance of mobile applications through rigorous testing.",
+                technologies: ["Mobile Testing Frameworks (Appium, Espresso, XCUITest)", "UI Testing", "Performance Testing", "Automated Testing", "Mobile Device Management (MDM)", "Mobile App Testing", "Test Automation", "Performance Testing Tools (JMeter, LoadRunner)", "Security Testing", "Test Design Methodologies", "Mobile Device Testing Methodologies", "Usability Testing", "Accessibility Testing", "Mobile Network Testing", "Cross-Platform Testing", "Continuous Integration"]
             },
             "productdesigner": {
-                definition: "Product Designers are the user experience visionaries of the tech world, crafting intuitive and engaging interfaces that make technology accessible to everyone. They're the champions of usability, fighting for seamless and delightful user experiences.",
-                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma)", "Prototyping (Adobe XD, InVision)", "User Research", "Design Thinking", "Interaction Design", "Visual Design", "Usability Testing", " User flows", "Information architecture", " Interaction design", " Visual Design", " Interaction design principles", " Usability testing methodologies"," Visual design principles", " Prototyping methodology", " Usability Heuristics","A/B Testing Metrics"," user Journey Mapping"," Usability Metrics"," Mobile design pattern"," Human factor testing", "Wireframing and journey", "User Research and Analysis", " A/B Testing Techniques",]
+                definition: "Product Designers create intuitive and engaging user interfaces, focusing on usability and user satisfaction.",
+                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma, Adobe XD)", "Prototyping (InVision, Marvel)", "User Research", "Design Thinking", "Interaction Design", "Visual Design", "Usability Testing", "User Flows", "Information Architecture", "Design Systems", "Accessibility (WCAG)", "A/B Testing", "User Personas", "Journey Mapping", "Analytics", "Mobile Design", "Web Design", "User Interface Design"]
             },
             "productmanager": {
-                definition: "Product Managers are the conductors of the product symphony, orchestrating the efforts of designers, engineers, and marketers to bring successful products to market. They're the visionaries of the product world, guiding their teams towards a shared goal.",
-                technologies: ["Agile Methodologies", "Market Research", "Competitive Analysis", "Product Roadmapping", "User Research", "Data Analysis", "Stakeholder Management", "Prioritization Techniques", "Product Analytics", " User story mapping", " A/B testing", " Market analysis", " Competitive analysis", " Product strategy", " Data analysis", " Communication", " Leadership"," Lean startup principles", " Product life cycle management", "Design thinking", "Financial modeling", " User personas", "Product Evangelism", " Marketing Strategies", " Communication","Strategic Planning" ]
+                definition: "Product Managers define product strategy, prioritize features, and guide development teams to deliver successful products.",
+                technologies: ["Agile Methodologies (Scrum, Kanban)", "Market Research", "Competitive Analysis", "Product Roadmapping", "User Research", "Data Analysis", "Stakeholder Management", "Prioritization Techniques (MoSCoW, RICE)", "Product Analytics", "User Story Mapping", "A/B Testing", "Market Segmentation", "Product Strategy", "Communication", "Leadership", "Design Thinking", "Product Life Cycle Management", "Financial Modeling", "User Personas"]
             },
             "productowner": {
-                definition: "Product Owners are the voice of the customer, representing their needs and desires to the development team. They prioritize features, manage the product backlog, and ensure that the product delivers maximum value to its users.",
-                technologies: ["Agile Methodologies", "User Story Writing", "Product Backlog Management", "Stakeholder Communication", "Sprint Planning", "User Acceptance Testing (UAT)", " Agile methodologies", " Requirements elicitation", " Backlog management", " Stakeholder communication", " Sprint planning", "User Acceptance Testing", "Increment Planning", " Stakeholder alignment techniques", " Scaled Agile Framework(SAFE)","Kano Model", "RoadMap Planning","Data Analysis"," Communication"]
+                definition: "Product Owners represent the customer's voice, prioritize features, and manage the product backlog in Agile development environments.",
+                technologies: ["Agile Methodologies (Scrum, Kanban)", "User Story Writing", "Product Backlog Management", "Stakeholder Communication", "Sprint Planning", "User Acceptance Testing (UAT)", "Requirements Elicitation", "Backlog Refinement", "Release Planning", "Agile Metrics", "Product Vision", "Market Awareness", "Technical Understanding", "Communication Skills", "Prioritization", "Decision-Making", "Jira", "Confluence"]
             },
             "qa": {
-                definition: "QA Automation Engineers are the robot wranglers of the testing world, creating automated tests that ensure software is reliable and bug-free. They're the automation experts, turning manual testing into efficient and scalable processes.",
-                technologies: ["Selenium", "JUnit", "TestNG", "CI/CD", "Scripting Languages (Python, JavaScript)", "Robot Framework", "Cypress", "TestCafe", "Jest", "Mocha", "Chai", "Cucumber (BDD)", " Automated testing", " Continuous integration", " Test planning", " Test automation", " Continuous delivery","Performance Testing", " Code review", " Test case management", "Cross-Browser Testing", "Cross-Device Testing", "API Testing", "Usability Test","Accessibility Test", "Reliablity Testing"]
+                definition: "QA Automation Engineers develop and maintain automated tests to ensure software quality and reliability.",
+                technologies: ["Selenium", "JUnit", "TestNG", "CI/CD (Jenkins, GitLab CI)", "Scripting Languages (Python, JavaScript)", "Robot Framework", "Cypress", "TestCafe", "Jest", "Mocha", "Chai", "Cucumber (BDD)", "API Testing (REST-assured, Postman)", "Performance Testing (JMeter, LoadRunner)", "Mobile Testing (Appium)", "Database Testing", "Security Testing", "Code Coverage", "Test Management Tools (TestRail, Zephyr)"]
             },
             "qalead": {
-                definition: "QA Leads are the generals of the testing army, leading and guiding QA teams to ensure software quality and reliability. They're the strategists of the testing world, defining test plans, managing resources, and driving continuous improvement.",
-                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", " Test management", " QA methodologies", " Risk management", " Leadership", "Mentoring and Training", " Cross-Team Collaboration", " Agile methodologies", " Release Management", " Performance Testing", "Security Testing", " Agile methodologies"," Black Box testing"]
+                definition: "QA Leads manage QA teams, define testing strategies, and ensure software meets quality standards.",
+                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", "Test Automation", "Performance Testing", "Security Testing", "Usability Testing", "Accessibility Testing", "Mobile Testing", "API Testing", "Database Testing", "Code Review", "Continuous Integration", "Test Strategy", "Mentoring"]
             },
             "qamanual": {
-                definition: "QA Manual Testers are the detectives of the software world, meticulously exploring applications to uncover bugs and ensure quality. They're the guardians of the user experience, protecting customers from frustration and disappointment.",
-                technologies: ["Test Case Design", "Exploratory Testing", "Bug Reporting (Jira)", "Usability Testing", "Accessibility Testing", "Security Testing", "Performance Testing", "Mobile Testing", "Cross-Browser Testing", " Test case design", "Exploratory testing", "Defect reporting", " Usability testing", " Security Testing", " Accessibility Testing", " Performance Testing", " Cross-platform testing", "Cross-browser Testing","Test Plan Development", "Mobile Testing Methodologies", "Usability Heuristics", "Ad-hoc Testing"]
+                definition: "QA Manual Testers perform manual testing to identify bugs and ensure software quality through direct interaction with the application.",
+                technologies: ["Test Case Design", "Exploratory Testing", "Bug Reporting (Jira)", "Usability Testing", "Accessibility Testing", "Security Testing", "Performance Testing", "Mobile Testing", "Cross-Browser Testing", "Test Plans", "Test Execution", "Defect Management", "Test Documentation", "Agile Testing", "Black Box Testing", "White Box Testing", "Gray Box Testing", "Test Environments"]
             },
             "releasemanager": {
-                definition: "Release Managers are the air traffic controllers of the software world, coordinating the deployment of new releases and ensuring smooth transitions for users. They're the orchestrators of the release process, keeping everything on schedule and under control.",
-                technologies: ["Release Management Tools (Jenkins, Azure DevOps)", "CI/CD Pipelines", "Version Control (Git)", "Deployment Automation (Ansible, Chef)", "Change Management", "Risk Management", " Release planning", "Deployment automation", " Change management", " Risk management", " Stakeholder communication", " Cloud Deployment", " Infrastructure as Code (IaC)", " Rollback strategies", " Release Monitoring", " Communication Strategy", "Risk Management Frameworks", "Deployment Automation"]
+                definition: "Release Managers coordinate the deployment of software releases, ensuring smooth and efficient transitions.",
+                technologies: ["Release Management Tools (Jenkins, Azure DevOps, GitLab CI)", "CI/CD Pipelines", "Version Control (Git)", "Deployment Automation (Ansible, Chef, Puppet)", "Change Management", "Risk Management", "Release Planning", "Deployment Strategies (Blue-Green, Canary)", "Rollback Procedures", "Monitoring", "Stakeholder Communication", "Environment Management", "Configuration Management", "Version Control", "Automation", "Cloud Deployment", "Compliance"]
             },
             "salesforce": {
-                definition: "Salesforce Architects are the Salesforce gurus of the CRM world, designing and implementing custom solutions that empower businesses to connect with their customers in meaningful ways. They're the CRM experts, turning business needs into scalable and effective Salesforce deployments.",
-                technologies: ["Salesforce Platform", "Apex", "Visualforce", "Lightning Components", "CRM Best Practices", "Salesforce Lightning Design System (SLDS)", "Salesforce DX", "Salesforce APIs (REST, SOAP, Bulk)", "Salesforce Data Model", "Salesforce Security Model", "SOQL and SOSL", " CRM", " Salesforce development", " Data architecture", " Security design", " Cloud computing", " Agile", " Force.com", " Lightning Web Components", " Salesforce CPQ"," Marketing Cloud"]
+                definition: "Salesforce Architects design and implement custom Salesforce solutions, empowering businesses to manage customer relationships effectively.",
+                technologies: ["Salesforce Platform", "Apex", "Visualforce", "Lightning Components (Aura, LWC)", "Salesforce Lightning Design System (SLDS)", "Salesforce DX", "Salesforce APIs (REST, SOAP, Bulk)", "Salesforce Data Model", "Salesforce Security Model", "SOQL and SOSL", "Sales Cloud", "Service Cloud", "Marketing Cloud", "CPQ", "Integration", "Data Migration", "Data Governance", "Salesforce Certifications"]
             },
             "scrummaster": {
-                definition: "Scrum Masters are the agile facilitators, guiding development teams to greater productivity and collaboration using the Scrum framework. They're the zen masters of agile, helping teams remove obstacles and achieve their goals.",
-                technologies: ["Scrum Framework", "Agile Methodologies", "Facilitation Techniques", "Conflict Resolution", "Jira", "Confluence", "Trello", "Kanban", "Lean Principles", "Agile Metrics", "Servant Leadership", " Agile principles", " Scrum", " Kanban", " Facilitation", " Leadership", " Communication", " Empathy", " Coaching", " Mentoring", " Scrum Framework"," Jira"," Confluence"]
+                definition: "Scrum Masters facilitate Scrum teams, removing impediments and ensuring adherence to Agile principles.",
+                technologies: ["Scrum Framework", "Agile Methodologies (Kanban, XP)", "Facilitation Techniques", "Conflict Resolution", "Jira", "Confluence", "Trello", "Kanban Boards", "Lean Principles", "Agile Metrics", "Servant Leadership", "Coaching", "Mentoring", "Communication", "Team Building", "Agile Ceremonies (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)"]
             },
             "sdet": {
-                definition: "SDETs are the hybrid heroes of the tech world, with a cross-functional expertise to not only develop code but also test it, ensuring quality and reliability throughout the software development lifecycle.",
-                technologies: ["Java", "Python", "Selenium", "TestNG", "JUnit", "Git", "Jenkins", " REST Assured", " JMeter", " Appium", " API testing", " Code coverage", " Performance testing", "Communication", "Data Structure", "Algorithm", "UI Testing", " Backend Development", " Agile testing methodologies", "Test Driven Development (TDD)", " Behavior Driven Development (BDD)", " Performance Tuning methodologies", " Load testing methodologies"]
+                definition: "SDETs develop and test software, ensuring quality and reliability throughout the software development lifecycle.",
+                technologies: ["Java", "Python", "Selenium", "TestNG", "JUnit", "Git", "Jenkins", "REST Assured", "JMeter", "Appium", "API Testing", "Code Coverage (JaCoCo, Cobertura)", "Performance Testing", "Security Testing", "Agile Methodologies", "Test-Driven Development (TDD)", "Behavior-Driven Development (BDD)", "Continuous Integration", "Continuous Delivery", "Test Automation", "Black Box Testing", "White Box Testing"]
             },
-            "techlead": {
-                definition: "Technical Leads are the guides to other engineers",
-                technologies: ["Code Design", "Code architecture", "Scaling", "Leading", "Collaboration", "Testing", "Technical Writing", " Code Review", " System Architect", " Scalablity", " Infrastructure Design", " Cloud computing", " Mentoring", "Design Patterns", "Data Analysis", "Communication", "Code optimization methodologies", "Agile"]
+             "techlead": {
+                definition: "Technical Leads guide development teams, providing technical expertise and leadership.",
+                technologies: ["Software Architecture", "System Design", "Coding (Java, Python, C++)", "Code Review", "Mentoring", "Leadership", "Communication", "Problem-Solving", "Agile Methodologies", "Design Patterns", "Scalability", "Performance Optimization", "Cloud Computing", "Database Design", "API Design", "Version Control (Git)", "Continuous Integration", "Continuous Delivery"]
             },
-            "testlead": {
-                definition: "Test Leads are the orchestrators of how to test, leading teams and to make sure to find errors from testing methodologies and techniques. They are a key to quality and reliability",
-                technologies: ["Code Architecture", "Testing", "Development", " Automation Frameworks", "Leading", "Communication", " Code Design", " System Architecture", " Scalablity", " Infrastructure Design", " Cloud computing", "Data Structure", "Algorithm", " Agile Methodologies", "Risk Assessment", "Cross Team Management", "Testing and Performance Evaluation"," Usability Testing", "Security Audits", " Cross Browser Testing"]
+             "testlead": {
+                definition: "Test Leads manage test teams, define testing strategies, and ensure software quality.",
+                technologies: ["Test Management (TestRail, Zephyr)", "Test Planning", "QA Methodologies (Agile, Waterfall)", "Team Leadership", "Defect Tracking (Jira, Bugzilla)", "Risk Assessment", "Test Automation", "Performance Testing", "Security Testing", "Usability Testing", "Accessibility Testing", "Mobile Testing", "API Testing", "Database Testing", "Code Review", "Continuous Integration", "Test Strategy", "Mentoring"]
             },
-            "usabilitytester": {
-                definition: "Usability Test Engineers are masters of human factor elements to the best designs and easy to use application",
-                technologies: ["Creative", "Human Psychology", "QA testing", "Empathy", " UX principles", "Human Psychology", "A/B Testing", " Data analytics", " Accessibility Principles", "Wireframing", " Usability testing Methodologies", "Usability Metrics", "User Feedback Analysis", "Human Factor Design", "UI design", " Qualitative data analysis"]
+              "usabilitytester": {
+                definition: "Usability Test Engineers conduct usability testing to ensure software is easy to use and meets user needs.",
+                technologies: ["Usability Testing Methodologies", "User Research", "Heuristic Evaluation", "Cognitive Walkthrough", "Eye Tracking", "A/B Testing", "User Interviews", "Surveys", "Usability Metrics (Task Completion Rate, Error Rate, Satisfaction)", "Prototyping", "Wireframing", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "Remote Usability Testing", "In-Person Usability Testing"]
             },
             "uxdesigner": {
-                definition: "UX Designers are experts in user interface and the experience. They are are expert the why and what",
-                technologies: ["Psychology", "UI/UX principles", "Wireframes", "Leadership", "Communication", "User Research", "Information Architecture", "Interaction Design", "Data Analysis", "Accessibility principles", "Data Analysis", " Information architecture Methodology", "Interaction design principles", "Usability evaluation techniques"," User Interface (UI)"," Wireframes", " Mobile application"]
+                definition: "UX Designers create user-centered designs that are intuitive, accessible, and enjoyable to use.",
+                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma, Adobe XD)", "Prototyping (InVision, Marvel)", "User Research", "Design Thinking", "Information Architecture", "Interaction Design", "Visual Design", "Usability Testing", "User Flows", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "Mobile Design", "Web Design", "Design Systems", "User Interface Design", "User-Centered Design Principles"]
             },
             "utilitytech": {
-                definition: "Utility Technology Partner understand and implement cloud frameworks, CI/CD processes for smooth, secure and reliable code.",
-                technologies: ["AI Cloud", "Automation Cloud", "Machine Learning Cloud", "CI/CD", "Cloud Platforms", "Infrastructure as Code", " Monitoring", " MicroServices", "Automation", "CloudFormation", " Python", " Java", " C++", "Continuous Integration", " Code Deployment", " Containerization", "Infrastructure Managment", " Agile" ]
+                definition: "Utility Technology Partners provide technology solutions for utility companies, focusing on efficiency and reliability.",
+                technologies: ["Power Systems", "Smart Grid", "SCADA Systems", "PLC Programming", "GIS", "AMI", "Data Analytics", "Cybersecurity", "Cloud Computing", "IoT", "Remote Monitoring", "Automation", "Data Management", "Energy Management Systems (EMS)", "Outage Management Systems (OMS)", "Distribution Management Systems (DMS)", "Networking", "Communication Protocols"]
             }
         };
 
         function generateDefinition() {
             const role = document.getElementById("role").value;
-            const definitionElement = document.getElementById("definition");
-            const techListElement = document.getElementById("techList");
+            const definition = document.getElementById("definition");
+            const techList = document.getElementById("techList");
 
-            if (roleDefinitions[role]) {
-                definitionElement.innerText = roleDefinitions[role].definition;
-                techListElement.innerHTML = "";
+            if (role) {
+                definition.textContent = roleDefinitions[role].definition;
+
+                // Clear existing list
+                techList.innerHTML = "";
+
+                // Populate tech list
                 roleDefinitions[role].technologies.forEach(tech => {
-                    const li = document.createElement("li");
-                    li.innerText = tech;
-                    techListElement.appendChild(li);
+                    let li = document.createElement("li");
+                    li.textContent = tech;
+                    techList.appendChild(li);
                 });
+
             } else {
-                definitionElement.innerText = "Role definition not found.";
-                techListElement.innerHTML = "";
+                definition.textContent = "";
+                techList.innerHTML = "";
             }
         }
-          // Attach the function to the onchange event for dynamic results.
-        document.getElementById("role").onchange = generateDefinition;
     </script>
 </body>
 </html>

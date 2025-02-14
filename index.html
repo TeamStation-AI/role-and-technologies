@@ -217,7 +217,45 @@
             },
              "fullstack": {
                 definition: "Full-Stack Developers are proficient in both front-end and back-end development, capable of building complete applications.",
-                technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Angular", "Vue.js", "Node.js (Express.js)", "Python (Django, Flask)", "Java (Spring, Spring Boot)", ".NET (C#, ASP.NET)", "SQL", "NoSQL Databases (MongoDB, Cassandra)", "Cloud Services (AWS, Azure, GCP)", "RESTful APIs", "GraphQL", "Docker", "Kubernetes", "CI/CD", "Testing Frameworks", "Version Control (Git)", "Agile Methodologies", "Web Security", "Database Design", "Server Administration", "API Design", "Data Structures", "Algorithms", "Microservices", "Message Queues (Kafka, RabbitMQ)", "Caching (Redis, Memcached)", "Load Balancing"]
+                technologies: technologies: [
+                    { name: "HTML5", url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" },
+                    { name: "CSS3", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" },
+                    { name: "JavaScript (ES6+)", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+                    { name: "React", url: "https://react.dev/" },
+                    { name: "Angular", url: "https://angular.io/" },
+                    { name: "Vue.js", url: "https://vuejs.org/" },
+                    { name: "Node.js (Express.js)", url: "https://nodejs.org/" },
+                    { name: "Python (Django)", url: "https://www.djangoproject.com/" },
+                    { name: "Python (Flask)", url: "https://flask.palletsprojects.com/" },
+                    { name: "Java (Spring Boot)", url: "https://spring.io/projects/spring-boot" },
+                    { name: ".NET (C#, ASP.NET)", url: "https://dotnet.microsoft.com/en-us/apps/aspnet" },
+                    { name: "SQL", url: "https://www.w3schools.com/sql/" }, // W3Schools SQL tutorial
+                    { name: "NoSQL Databases (MongoDB)", url: "https://www.mongodb.com/" },
+                    { name: "NoSQL Databases (Cassandra)", url: "https://cassandra.apache.org/" },
+                    { name: "Cloud Services (AWS)", url: "https://aws.amazon.com/" },
+                    { name: "Cloud Services (Azure)", url: "https://azure.microsoft.com/en-us/" },
+                    { name: "Cloud Services (GCP)", url: "https://cloud.google.com/" },
+                    { name: "RESTful APIs", url: "https://restfulapi.net/" },
+                    { name: "GraphQL", url: "https://graphql.org/" },
+                    { name: "Docker", url: "https://www.docker.com/" },
+                    { name: "Kubernetes", url: "https://kubernetes.io/" },
+                    { name: "CI/CD", url: "https://www.redhat.com/en/topics/devops/what-is-ci-cd" },
+                    { name: "Testing Frameworks", url: "https://www.guru99.com/software-testing.html" }, // Generic testing resource
+                    { name: "Version Control (Git)", url: "https://git-scm.com/" },
+                    { name: "Agile Methodologies", url: "https://www.atlassian.com/agile" },
+                    { name: "Web Security", url: "https://owasp.org/" },
+                    { name: "Database Design", url: "https://www.youtube.com/watch?v=ztHopE5jxK0" }, //YouTube
+                    { name: "Server Administration", url: "https://www.digitalocean.com/community/tutorial_series/an-introduction-to-linux-servers" }, //Digital Ocean Linux Servers
+                    { name: "API Design", url: "https://www.mulesoft.com/resource-center/api/api-design" }, // MuleSoft API Design
+                    { name: "Data Structures", url: "https://www.geeksforgeeks.org/data-structures/" },//GeeksForGeeks
+                    { name: "Algorithms", url: "https://www.geeksforgeeks.org/fundamentals-of-algorithms/" }, //GeeksForGeeks
+                    { name: "Microservices", url: "https://microservices.io/" },//Microservices.io
+                    { name: "Message Queues (Kafka)", url: "https://kafka.apache.org/" },
+                    { name: "Message Queues (RabbitMQ)", url: "https://www.rabbitmq.com/" },
+                    { name: "Caching (Redis)", url: "https://redis.io/" },
+                    { name: "Caching (Memcached)", url: "https://memcached.org/" },
+                    { name: "Load Balancing", url: "https://www.nginx.com/resources/glossary/load-balancing/" }
+                ]
             },
             "ml": {
                 definition: "Machine Learning Engineers develop and deploy machine learning models to solve complex problems.",
@@ -309,16 +347,27 @@
                 techList.innerHTML = "";
 
                 // Populate tech list
-                roleDefinitions[role].technologies.forEach(tech => {
-                    let li = document.createElement("li");
-                    li.textContent = tech;
-                    techList.appendChild(li);
-                });
+                if (roleDefinitions[role].technologies) { // Check if 'technologies' exists
+                    roleDefinitions[role].technologies.forEach(tech => {
+                        let li = document.createElement("li");
+                        if (tech.url) {
+                            let a = document.createElement("a");
+                            a.href = tech.url;
+                            a.textContent = tech.name;
+                            a.rel = "noopener noreferrer"; // Security and privacy
+                            li.appendChild(a);
+                        } else {
+                            li.textContent = tech.name || tech; // Handle cases where 'name' might be missing
+                        }
+                        techList.appendChild(li);
+                    });
+                }
 
             } else {
                 definition.textContent = "";
                 techList.innerHTML = "";
             }
+        }
         }
     </script>
 </body>

@@ -147,7 +147,50 @@
 
     <script>
         const roleDefinitions = {
-           "aiprompt": {
+            "fullstack": {
+                definition: "Full-Stack Developers are proficient in both front-end and back-end development, capable of building complete applications.",
+                technologies: [
+                    { name: "HTML5", url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" },
+                    { name: "CSS3", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" },
+                    { name: "JavaScript (ES6+)", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+                    { name: "React", url: "https://react.dev/" },
+                    { name: "Angular", url: "https://angular.io/" },
+                    { name: "Vue.js", url: "https://vuejs.org/" },
+                    { name: "Node.js (Express.js)", url: "https://nodejs.org/" },
+                    { name: "Python (Django)", url: "https://www.djangoproject.com/" },
+                    { name: "Python (Flask)", url: "https://flask.palletsprojects.com/" },
+                    { name: "Java (Spring Boot)", url: "https://spring.io/projects/spring-boot" },
+                    { name: ".NET (C#, ASP.NET)", url: "https://dotnet.microsoft.com/en-us/apps/aspnet" },
+                    { name: "SQL", url: "https://www.w3schools.com/sql/" },
+                    { name: "NoSQL Databases (MongoDB)", url: "https://www.mongodb.com/" },
+                    { name: "NoSQL Databases (Cassandra)", url: "https://cassandra.apache.org/" },
+                    { name: "Cloud Services (AWS)", url: "https://aws.amazon.com/" },
+                    { name: "Cloud Services (Azure)", url: "https://azure.microsoft.com/en-us/" },
+                    { name: "Cloud Services (GCP)", url: "https://cloud.google.com/" },
+                    { name: "RESTful APIs", url: "https://restfulapi.net/" },
+                    { name: "GraphQL", url: "https://graphql.org/" },
+                    { name: "Docker", url: "https://www.docker.com/" },
+                    { name: "Kubernetes", url: "https://kubernetes.io/" },
+                    { name: "CI/CD", url: "https://www.redhat.com/en/topics/devops/what-is-ci-cd" },
+                    { name: "Testing Frameworks", url: "https://www.guru99.com/software-testing.html" },
+                    { name: "Version Control (Git)", url: "https://git-scm.com/" },
+                    { name: "Agile Methodologies", url: "https://www.atlassian.com/agile" },
+                    { name: "Web Security", url: "https://owasp.org/" },
+                    { name: "Database Design", url: "https://www.youtube.com/watch?v=ztHopE5jxK0" },
+                    { name: "Server Administration", url: "https://www.digitalocean.com/community/tutorial_series/an-introduction-to-linux-servers" },
+                    { name: "API Design", url: "https://www.mulesoft.com/resource-center/api/api-design" },
+                    { name: "Data Structures", url: "https://www.geeksforgeeks.org/data-structures/" },
+                    { name: "Algorithms", url: "https://www.geeksforgeeks.org/fundamentals-of-algorithms/" },
+                    { name: "Microservices", url: "https://microservices.io/" },
+                    { name: "Message Queues (Kafka)", url: "https://kafka.apache.org/" },
+                    { name: "Message Queues (RabbitMQ)", url: "https://www.rabbitmq.com/" },
+                    { name: "Caching (Redis)", url: "https://redis.io/" },
+                    { name: "Caching (Memcached)", url: "https://memcached.org/" },
+                    { name: "Load Balancing", url: "https://www.nginx.com/resources/glossary/load-balancing/" }
+                ]
+            },
+            // Other roles remain unchanged for now
+            "aiprompt": {
                 definition: "AI Prompt Engineers are specialists in crafting effective prompts for large language models, optimizing AI outputs for various applications.",
                 technologies: ["Python", "LangChain", "Transformers", "GPT models (GPT-3, GPT-4)", "Prompt Engineering Techniques", "Vector Databases (e.g., Pinecone, Chroma)", "API Integration (OpenAI API)", "Cloud Platforms (AWS, Azure, GCP)", "Jupyter Notebooks", "Prompt Versioning Tools", "Adversarial Prompting", "Hallucination Mitigation", "Chain of Thought Prompting", "Few-Shot Learning", "Zero-Shot Learning"]
             },
@@ -215,48 +258,6 @@
                 definition: "Front-End Developers build user interfaces, ensuring they are visually appealing, interactive, and accessible.",
                 technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Angular", "Vue.js", "Sass", "Less", "Webpack", "Babel", "jQuery", "Bootstrap", "Tailwind CSS", "Material UI", "Responsive Design", "DOM Manipulation", "AJAX", "GraphQL", "RESTful APIs", "WebSockets", "npm", "yarn", "TypeScript", "Web Accessibility (WCAG, ARIA)", "Progressive Web Apps (PWAs)", "Cross-Browser Compatibility", "Testing Frameworks (Jest, Mocha, Cypress)", "State Management (Redux, Vuex)", "Build Tools (Parcel, Vite)", "Linting (ESLint, Prettier)"]
             },
-             "fullstack": {
-                definition: "Full-Stack Developers are proficient in both front-end and back-end development, capable of building complete applications.",
-                technologies: technologies: [
-                    { name: "HTML5", url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" },
-                    { name: "CSS3", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" },
-                    { name: "JavaScript (ES6+)", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-                    { name: "React", url: "https://react.dev/" },
-                    { name: "Angular", url: "https://angular.io/" },
-                    { name: "Vue.js", url: "https://vuejs.org/" },
-                    { name: "Node.js (Express.js)", url: "https://nodejs.org/" },
-                    { name: "Python (Django)", url: "https://www.djangoproject.com/" },
-                    { name: "Python (Flask)", url: "https://flask.palletsprojects.com/" },
-                    { name: "Java (Spring Boot)", url: "https://spring.io/projects/spring-boot" },
-                    { name: ".NET (C#, ASP.NET)", url: "https://dotnet.microsoft.com/en-us/apps/aspnet" },
-                    { name: "SQL", url: "https://www.w3schools.com/sql/" }, // W3Schools SQL tutorial
-                    { name: "NoSQL Databases (MongoDB)", url: "https://www.mongodb.com/" },
-                    { name: "NoSQL Databases (Cassandra)", url: "https://cassandra.apache.org/" },
-                    { name: "Cloud Services (AWS)", url: "https://aws.amazon.com/" },
-                    { name: "Cloud Services (Azure)", url: "https://azure.microsoft.com/en-us/" },
-                    { name: "Cloud Services (GCP)", url: "https://cloud.google.com/" },
-                    { name: "RESTful APIs", url: "https://restfulapi.net/" },
-                    { name: "GraphQL", url: "https://graphql.org/" },
-                    { name: "Docker", url: "https://www.docker.com/" },
-                    { name: "Kubernetes", url: "https://kubernetes.io/" },
-                    { name: "CI/CD", url: "https://www.redhat.com/en/topics/devops/what-is-ci-cd" },
-                    { name: "Testing Frameworks", url: "https://www.guru99.com/software-testing.html" }, // Generic testing resource
-                    { name: "Version Control (Git)", url: "https://git-scm.com/" },
-                    { name: "Agile Methodologies", url: "https://www.atlassian.com/agile" },
-                    { name: "Web Security", url: "https://owasp.org/" },
-                    { name: "Database Design", url: "https://www.youtube.com/watch?v=ztHopE5jxK0" }, //YouTube
-                    { name: "Server Administration", url: "https://www.digitalocean.com/community/tutorial_series/an-introduction-to-linux-servers" }, //Digital Ocean Linux Servers
-                    { name: "API Design", url: "https://www.mulesoft.com/resource-center/api/api-design" }, // MuleSoft API Design
-                    { name: "Data Structures", url: "https://www.geeksforgeeks.org/data-structures/" },//GeeksForGeeks
-                    { name: "Algorithms", url: "https://www.geeksforgeeks.org/fundamentals-of-algorithms/" }, //GeeksForGeeks
-                    { name: "Microservices", url: "https://microservices.io/" },//Microservices.io
-                    { name: "Message Queues (Kafka)", url: "https://kafka.apache.org/" },
-                    { name: "Message Queues (RabbitMQ)", url: "https://www.rabbitmq.com/" },
-                    { name: "Caching (Redis)", url: "https://redis.io/" },
-                    { name: "Caching (Memcached)", url: "https://memcached.org/" },
-                    { name: "Load Balancing", url: "https://www.nginx.com/resources/glossary/load-balancing/" }
-                ]
-            },
             "ml": {
                 definition: "Machine Learning Engineers develop and deploy machine learning models to solve complex problems.",
                 technologies: ["Python", "R", "TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost", "LightGBM", "Hugging Face Transformers", "Deep Learning", "Data Engineering", "Cloud ML Services (AWS SageMaker, Azure ML, Google AI Platform)", "Natural Language Processing (NLP)", "Computer Vision (OpenCV)", "Machine Learning Algorithms", "Data Preprocessing", "Model Deployment (Kubernetes, Docker)", "Data Visualization", "Big Data Technologies (Spark, Hadoop)", "Data Modeling", "Statistical Analysis", "Reinforcement Learning", "Experiment Tracking (MLflow, Weights & Biases)", "Model Interpretability", "Ethical AI"]
@@ -275,7 +276,7 @@
             },
             "productdesigner": {
                 definition: "Product Designers create intuitive and engaging user interfaces, focusing on usability and user satisfaction.",
-                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma, Adobe XD)", "Prototyping (InVision, Marvel, Proto.io)", "User Research", "Design Thinking", "Interaction Design", "Visual Design", "Usability Testing", "User Flows", "Information Architecture", "Design Systems", "Accessibility (WCAG)", "A/B Testing", "User Personas", "Journey Mapping", "Analytics", "Mobile Design", "Web Design", "User Interface Design", "User-Centered Design Principles", "Heuristic Evaluation", "Cognitive Walkthrough"]
+                technologies: ["UI/UX Design", "Wireframing (Sketch, Figma, Adobe XD)", "Prototyping (InVision, Marvel, Proto.io)", "User Research", "Design Thinking", "Information Architecture", "Interaction Design", "Visual Design", "Usability Testing", "User Flows", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "A/B Testing", "User Personas", "Journey Mapping", "Analytics", "Mobile Design", "Web Design", "User Interface Design", "User-Centered Design Principles", "Heuristic Evaluation", "Cognitive Walkthrough"]
             },
             "productmanager": {
                 definition: "Product Managers define product strategy, prioritize features, and guide development teams to deliver successful products.",
@@ -323,7 +324,7 @@
             },
               "usabilitytester": {
                 definition: "Usability Test Engineers conduct usability testing to ensure software is easy to use and meets user needs.",
-                technologies: ["Usability Testing Methodologies", "User Research", "Heuristic Evaluation", "Cognitive Walkthrough", "Eye Tracking", "A/B Testing", "User Interviews", "Surveys", "Usability Metrics (Task Completion Rate, Error Rate, Satisfaction)", "Prototyping", "Wireframing", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "Remote Usability Testing", "In-Person Usability Testing", "Think-Aloud Protocol", "Usability Reporting", "Statistical Analysis", "User Feedback Analysis", "Accessibility Testing Tools", "Design Principles", "Interaction Design"]
+                technologies: ["Usability Testing Methodologies", "User Research", "Heuristic Evaluation", "Cognitive Walkthrough", "Eye Tracking", "A/B Testing", "User Interviews", "Surveys", "Usability Metrics (Task Completion Rate, Error Rate, Satisfaction)", "Prototyping", "Wireframing", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "Remote Usability Testing", "In-Person Usability Testing", "Think-Aloud Protocol", "Usability Reporting", "Statistical Analysis", "User Feedback Analysis", "Accessibility Testing Tools", "Design Principles", "Interaction Design"]A/B Testing", "User Interviews", "Surveys", "Usability Metrics (Task Completion Rate, Error Rate, Satisfaction)", "Prototyping", "Wireframing", "User Personas", "Journey Mapping", "Accessibility (WCAG)", "Remote Usability Testing", "In-Person Usability Testing", "Think-Aloud Protocol", "Usability Reporting", "Statistical Analysis", "User Feedback Analysis", "Accessibility Testing Tools", "Design Principles", "Interaction Design"]
             },
             "uxdesigner": {
                 definition: "UX Designers create user-centered designs that are intuitive, accessible, and enjoyable to use.",

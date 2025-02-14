@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamStation Role Definition Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0c1020;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #0c1020;
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            text-align: left;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+             background-color: #333;
+            color: white;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #results {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TeamStation Role Definition Generator</h1>
+        <label for="role">Select a Role:</label>
+        <select id="role">
+            <option value="">-- Select a Role --</option>
+            <option value="aiprompt">AI Prompt Engineer</option>
+            <option value="architect">Software Architect</option>
+            <option value="backend">Back-End Developer</option>
+            <option value="bi">Business Intelligence Analyst</option>
+            <option value="businessanalyst">Business Analyst</option>
+            <option value="cloudengineer">Cloud Engineer</option>
+            <option value="crossplatform">Cross-Platform Designer</option>
+            <option value="dataengineer">Data Engineer</option>
+            <option value="datascientist">Data Scientist</option>
+            <option value="datatester">Data Tester</option>
+            <option value="dba">DBA Engineer</option>
+            <option value="devops">DevOps Engineer</option>
+            <option value="devsec">DevSec Engineer</option>
+            <option value="ecommerce">eCommerce Certified Specialist</option>
+            <option value="evangelist">DevOps Evangelist</option>
+            <option value="experienceassurance">Experience Assurance Engineer</option>
+            <option value="frontend">Front-End Developer</option>
+            <option value="fullstack">Full-Stack Developer</option>
+            <option value="ml">Machine Learning Engineer</option>
+            <option value="mobilearch">Mobile Architect</option>
+            <option value="mobileengineer">Mobile Engineer</option>
+            <option value="mobiletester">Mobile Tester</option>
+            <option value="productdesigner">Product Designer</option>
+            <option value="productmanager">Product Manager</option>
+            <option value="productowner">Product Owner</option>
+            <option value="qa">QA Automation Engineer</option>
+            <option value="qalead">QA Lead</option>
+            <option value="qamanual">QA Manual Tester</option>
+            <option value="releasemanager">Release Manager</option>
+            <option value="salesforce">Salesforce Architect</option>
+            <option value="scrummaster">Scrum Master</option>
+            <option value="sdet">SDET</option>
+            <option value="techlead">Technical Lead</option>
+            <option value="testlead">Test Lead</option>
+            <option value="usabilitytester">Usability Test Engineer</option>
+            <option value="uxdesigner">UX Designer</option>
+            <option value="utilitytech">Utility Technology Partner</option>
+        </select>
+
+        <button onclick="generateDefinition()">Generate Definition</button>
+
+        <div id="results">
+            <h2>Role Definition:</h2>
+            <p id="definition"></p>
+
+            <h2>Typical Technologies Used:</h2>
+            <ul id="techList"></ul>
+        </div>
+    </div>
+
+    <script>
+        const roleDefinitions = {
+            "aiprompt": {
+                definition: "AI Prompt Engineers are the whisperers to the machines, crafting the perfect phrases to coax out genius from artificial intelligence. They're like language alchemists, turning simple text into powerful commands.",
+                technologies: ["Natural Language Processing", "Large Language Models (LLMs)", "Python", "Prompt Engineering Techniques"]
+            },
+            "architect": {
+                definition: "Software Architects are the master builders of the digital world, designing the blueprints for complex systems. They're the Gandalf of the code, guiding the fellowship towards a stable and scalable solution.",
+                technologies: ["Cloud Architecture", "Design Patterns", "Microservices", "UML", "Various Programming Languages"]
+            },
+            "backend": {
+                definition: "Back-End Developers are the unseen heroes of the web, crafting the server-side logic and databases that power applications. They're the ninjas of the code, working tirelessly behind the scenes to keep everything running smoothly.",
+                technologies: ["Node.js", "Python", "Java", "Databases (SQL, NoSQL)", "APIs (REST, GraphQL)"]
+            },
+            "bi": {
+                definition: "Business Intelligence Analysts are the detectives of the data world, uncovering insights and trends that drive strategic decisions. They transform raw data into actionable knowledge, helping businesses make smarter choices.",
+                technologies: ["SQL", "Data Warehousing", "ETL Processes", "Tableau", "Power BI"]
+            },
+            "businessanalyst": {
+                definition: "Business Analysts are the problem-solvers of the business world, identifying needs, defining requirements, and bridging the gap between stakeholders and technical teams. They're the translators of business jargon into actionable specs.",
+                technologies: ["Requirements Gathering", "Process Modeling", "UML", "Agile Methodologies"]
+            },
+            "cloudengineer": {
+                definition: "Cloud Engineers are the architects of the digital sky, building and managing the infrastructure that powers modern applications in the cloud. They ensure scalability, reliability, and cost-effectiveness in the ever-expanding world of cloud computing.",
+                technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"]
+            },
+            "crossplatform": {
+                definition: "Cross-Platform Designers are the masters of adaptation, creating user interfaces that seamlessly transition across different devices and platforms. They're the chameleons of the design world, ensuring a consistent and engaging experience everywhere.",
+                technologies: ["React Native", "Flutter", "Xamarin", "Responsive Design", "UI/UX Principles"]
+            },
+            "dataengineer": {
+                definition: "Data Engineers are the builders of the data pipeline, constructing the infrastructure that transports and transforms raw data into usable information. They ensure that data flows smoothly and reliably from source to destination.",
+                technologies: ["ETL Tools", "Data Warehousing", "Spark", "Hadoop", "Cloud Data Services"]
+            },
+            "datascientist": {
+                definition: "Data Scientists are the fortune tellers of the data world, using algorithms and statistical models to predict future trends and behaviors. They're the wizards of data, turning raw numbers into actionable insights.",
+                technologies: ["Python", "R", "Machine Learning", "Statistical Modeling", "Data Visualization"]
+            },
+            "datatester": {
+                definition: "Data Testers are the quality control specialists of the data world, ensuring that data is accurate, consistent, and reliable. They're the guardians of data integrity, protecting businesses from bad decisions based on flawed information.",
+                technologies: ["SQL", "Data Validation Techniques", "ETL Testing", "Data Quality Metrics"]
+            },
+            "dba": {
+                definition: "DBA Engineers are the guardians of the database kingdom, ensuring data is stored securely, efficiently, and is always available when needed. They're the protectors of the data realm, defending against corruption and unauthorized access.",
+                technologies: ["SQL", "Database Administration", "Performance Tuning", "Backup and Recovery", "Security"]
+            },
+            "devops": {
+                definition: "DevOps Engineers are the workflow wizards of the IT world, automating the software delivery process and bridging the gap between development and operations. They're the conductors of the software symphony, ensuring that every instrument plays in harmony.",
+                technologies: ["CI/CD", "Automation Tools (Ansible, Chef)", "Cloud Platforms", "Containerization (Docker, Kubernetes)"]
+            },
+            "devsec": {
+                definition: "DevSec Engineers are the security guardians of the software world, integrating security practices into every stage of the development lifecycle. They're the knights of the digital realm, protecting applications from threats and vulnerabilities.",
+                technologies: ["Security Auditing", "Penetration Testing", "Vulnerability Scanning", "Security Automation"]
+            },
+            "ecommerce": {
+                definition: "eCommerce Certified Specialists are the digital entrepreneurs of the web, building and managing online stores that sell products and services to the world. They're the merchants of the internet, turning clicks into customers and dreams into digital empires.",
+                technologies: ["Shopify", "Magento", "WooCommerce", "Payment Gateways", "SEO", "Digital Marketing"]
+            },
+            "evangelist": {
+                definition: "DevOps Evangelists are the cheerleaders of the IT world, promoting collaboration, automation, and continuous improvement across development and operations teams. They're the motivators of DevOps, inspiring others to embrace new ways of working.",
+                technologies: ["DevOps Principles", "Public Speaking", "Community Building", "Technical Communication"]
+            },
+            "experienceassurance": {
+                definition: "Experience Assurance Engineers are the champions of the user, ensuring that applications deliver a seamless and satisfying experience across all devices and platforms. They're the advocates for the user, fighting for usability and delight.",
+                technologies: ["Usability Testing", "Performance Monitoring", "User Feedback Analysis", "Accessibility Standards"]
+            },
+            "frontend": {
+                definition: "Front-End Developers are the digital artists of the web, crafting visually stunning and interactive user interfaces that capture the imagination. They're the painters of the internet, turning ideas into captivating online experiences.",
+                technologies: ["HTML", "CSS", "JavaScript", "React", "Angular", "Vue.js", "Responsive Design"]
+            },
+            "fullstack": {
+                definition: "Full-Stack Developers are the multi-talented maestros of the web, capable of building both the front-end and back-end of applications with equal skill. They're the renaissance people of the digital world, mastering all aspects of web development.",
+                technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Python", "Databases", "Cloud Services"]
+            },
+            "ml": {
+                definition: "Machine Learning Engineers are the AI architects of the future, building intelligent systems that can learn, adapt, and solve complex problems. They're the innovators of the AI world, pushing the boundaries of what's possible with machine learning.",
+                technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Deep Learning", "Data Engineering"]
+            },
+            "mobilearch": {
+                definition: "Mobile Architects are the strategists of the mobile world, designing the overall structure and architecture of mobile applications. They're the masterminds behind mobile experiences, ensuring that apps are scalable, reliable, and user-friendly.",
+                technologies: ["Mobile Development Frameworks", "Cloud Services", "Security Protocols", "Performance Optimization"]
+            },
+            "mobileengineer": {
+                definition: "Mobile Engineers are the code wizards of the mobile world, crafting high-performance, user-friendly applications that run seamlessly on smartphones and tablets. They're the builders of mobile experiences, turning ideas into reality on the go.",
+                technologies: ["iOS (Swift, Objective-C)", "Android (Java, Kotlin)", "React Native", "Flutter"]
+            },
+            "mobiletester": {
+                definition: "Mobile Testers are the gatekeepers of the mobile world, ensuring that applications meet the highest standards of quality and performance. They're the guardians of mobile experiences, protecting users from bugs and glitches.",
+                technologies: ["Mobile Testing Frameworks", "UI Testing", "Performance Testing", "Automated Testing"]
+            },
+            "productdesigner": {
+                definition: "Product Designers are the user experience visionaries of the tech world, crafting intuitive and engaging interfaces that make technology accessible to everyone. They're the champions of usability, fighting for seamless and delightful user experiences.",
+                technologies: ["UI/UX Design", "Wireframing", "Prototyping", "User Research", "Design Thinking"]
+            },
+            "productmanager": {
+                definition: "Product Managers are the conductors of the product symphony, orchestrating the efforts of designers, engineers, and marketers to bring successful products to market. They're the visionaries of the product world, guiding their teams towards a shared goal.",
+                technologies: ["Agile Methodologies", "Market Research", "Competitive Analysis", "Product Roadmapping"]
+            },
+            "productowner": {
+                definition: "Product Owners are the voice of the customer, representing their needs and desires to the development team. They prioritize features, manage the product backlog, and ensure that the product delivers maximum value to its users.",
+                technologies: ["Agile Methodologies", "User Story Writing", "Product Backlog Management", "Stakeholder Communication"]
+            },
+            "qa": {
+                definition: "QA Automation Engineers are the robot wranglers of the testing world, creating automated tests that ensure software is reliable and bug-free. They're the automation experts, turning manual testing into efficient and scalable processes.",
+                technologies: ["Selenium", "JUnit", "TestNG", "CI/CD", "Scripting Languages (Python, JavaScript)"]
+            },
+            "qalead": {
+                definition: "QA Leads are the generals of the testing army, leading and guiding QA teams to ensure software quality and reliability. They're the strategists of the testing world, defining test plans, managing resources, and driving continuous improvement.",
+                technologies: ["Test Management", "Test Planning", "QA Methodologies", "Team Leadership"]
+            },
+            "qamanual": {
+                definition: "QA Manual Testers are the detectives of the software world, meticulously exploring applications to uncover bugs and ensure quality. They're the guardians of the user experience, protecting customers from frustration and disappointment.",
+                technologies: ["Test Case Design", "Exploratory Testing", "Bug Reporting", "Usability Testing"]
+            },
+            "releasemanager": {
+                definition: "Release Managers are the air traffic controllers of the software world, coordinating the deployment of new releases and ensuring smooth transitions for users. They're the orchestrators of the release process, keeping everything on schedule and under control.",
+                technologies: ["Release Management Tools", "CI/CD Pipelines", "Version Control", "Deployment Automation"]
+            },
+            "salesforce": {
+                definition: "Salesforce Architects are the Salesforce gurus of the CRM world, designing and implementing custom solutions that empower businesses to connect with their customers in meaningful ways. They're the CRM experts, turning business needs into scalable and effective Salesforce deployments.",
+                technologies: ["Salesforce Platform", "Apex", "Visualforce", "Lightning Components", "CRM Best Practices"]
+            },
+            "scrummaster": {
+                definition: "Scrum Masters are the agile facilitators, guiding development teams to greater productivity and collaboration using the Scrum framework. They're the zen masters of agile, helping teams remove obstacles and achieve their goals.",
+                technologies: ["Scrum Framework", "Agile Methodologies", "Facilitation Techniques", "Conflict Resolution"]
+            },
+            "sdet": {
+                definition: "SDET are the hybrid heroes of the tech world, with a cross functional expertise to not only develop but test code as well to ensure quality",
+                technologies: ["Testing frameworks", "Coding in multiple languages", "Development Cycle", "Creative Thinking", "Excellent Communication"
+              },
+              "techlead": {
+                definition: "Technical Leads are the guides to other engineers",
+                technologies: ["Code Design", "Code architecture", "Scaling", "Leading", "Collaboration",
+                 "Testing", "Technical Writing"]
+              },
+              "testlead": {
+                  definition: "Test Lead are the orchestrators of how to test",
+                  technologies: ["Code Architecture", "Testing", "Development", " Automation Frameworks", "Leading", "Communication"]
+              },
+              "usabilitytester":{
+                  definition:"Usability Test Engineers are masters of human factor elements to the best designs and easy to use application",
+                  technologies: ["Creative", "Human Psycology", "QA testing", "Empathy"]
+              },
+              "uxdesigner":{
+                  definition: " UX Designers are experts in user interface and the experience.  They are are expert the why and what",
+                  technologies: ["Psycology", "UI/UX principles", "Wireframes", "Leadership", "Communication"]
+              },
+              "utilitytech":{
+                  definition: "Utility Technology Partner understand and implement cloud frameworks, CI/CD processes for smooth, secure and reliable code.",
+                  technologies: ["AI Cloud", "Automation Cloud", "Machine Learning Cloud", "CI/CD","Cloud Platforms"]
+              }
+        };
+
+        function generateDefinition() {
+            const role = document.getElementById("role").value;
+            const definitionElement = document.getElementById("definition");
+            const techListElement = document.getElementById("techList");
+
+            if (roleDefinitions[role]) {
+                definitionElement.innerText = roleDefinitions[role].definition;
+                techListElement.innerHTML = "";
+                roleDefinitions[role].technologies.forEach(tech => {
+                    const li = document.createElement("li");
+                    li.innerText = tech;
+                    techListElement.appendChild(li);
+                });
+            } else {
+                definitionElement.innerText = "Role definition not found.";
+                techListElement.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +77,7 @@
     <div class="container">
         <h1>TeamStation Role Definition Generator</h1>
         <label for="role">Select a Role:</label>
-        <select id="role">
+        <select id="role" onchange="generateDefinition()">
             <option value="">-- Select a Role --</option>
             <option value="aiprompt">AI Prompt Engineer</option>
             <option value="architect">Software Architect</option>
@@ -117,7 +118,7 @@
             <option value="utilitytech">Utility Technology Partner</option>
         </select>
 
-        <button onclick="generateDefinition()">Generate Definition</button>
+
 
         <div id="results">
             <h2>Role Definition:</h2>
@@ -140,7 +141,7 @@
             },
             "backend": {
                 definition: "Back-End Developers are the unseen heroes of the web, crafting the server-side logic and databases that power applications. They're the ninjas of the code, working tirelessly behind the scenes to keep everything running smoothly.",
-                technologies: ["Node.js", "Python", "Java", "Databases (SQL, NoSQL)", "APIs (REST, GraphQL)"]
+                technologies: ["Node.js", "Python", "Java", "SQL", "Databases (SQL, NoSQL)", "APIs (REST, GraphQL)"]
             },
             "bi": {
                 definition: "Business Intelligence Analysts are the detectives of the data world, uncovering insights and trends that drive strategic decisions. They transform raw data into actionable knowledge, helping businesses make smarter choices.",
@@ -256,29 +257,28 @@
             },
             "sdet": {
                 definition: "SDET are the hybrid heroes of the tech world, with a cross functional expertise to not only develop but test code as well to ensure quality",
-                technologies: ["Testing frameworks", "Coding in multiple languages", "Development Cycle", "Creative Thinking", "Excellent Communication"
-              },
-              "techlead": {
+                technologies: ["Testing frameworks", "Coding in multiple languages", "Development Cycle", "Creative Thinking", "Excellent Communication"]
+            },
+            "techlead": {
                 definition: "Technical Leads are the guides to other engineers",
-                technologies: ["Code Design", "Code architecture", "Scaling", "Leading", "Collaboration",
-                 "Testing", "Technical Writing"]
-              },
-              "testlead": {
-                  definition: "Test Lead are the orchestrators of how to test",
-                  technologies: ["Code Architecture", "Testing", "Development", " Automation Frameworks", "Leading", "Communication"]
-              },
-              "usabilitytester":{
-                  definition:"Usability Test Engineers are masters of human factor elements to the best designs and easy to use application",
-                  technologies: ["Creative", "Human Psycology", "QA testing", "Empathy"]
-              },
-              "uxdesigner":{
-                  definition: " UX Designers are experts in user interface and the experience.  They are are expert the why and what",
-                  technologies: ["Psycology", "UI/UX principles", "Wireframes", "Leadership", "Communication"]
-              },
-              "utilitytech":{
-                  definition: "Utility Technology Partner understand and implement cloud frameworks, CI/CD processes for smooth, secure and reliable code.",
-                  technologies: ["AI Cloud", "Automation Cloud", "Machine Learning Cloud", "CI/CD","Cloud Platforms"]
-              }
+                technologies: ["Code Design", "Code architecture", "Scaling", "Leading", "Collaboration", "Testing", "Technical Writing"]
+            },
+            "testlead": {
+                definition: "Test Lead are the orchestrators of how to test",
+                technologies: ["Code Architecture", "Testing", "Development", " Automation Frameworks", "Leading", "Communication"]
+            },
+            "usabilitytester": {
+                definition: "Usability Test Engineers are masters of human factor elements to the best designs and easy to use application",
+                technologies: ["Creative", "Human Psychology", "QA testing", "Empathy"]
+            },
+            "uxdesigner": {
+                definition: "UX Designers are experts in user interface and the experience. They are are expert the why and what",
+                technologies: ["Psychology", "UI/UX principles", "Wireframes", "Leadership", "Communication"]
+            },
+            "utilitytech": {
+                definition: "Utility Technology Partner understand and implement cloud frameworks, CI/CD processes for smooth, secure and reliable code.",
+                technologies: ["AI Cloud", "Automation Cloud", "Machine Learning Cloud", "CI/CD", "Cloud Platforms"]
+            }
         };
 
         function generateDefinition() {
@@ -299,6 +299,8 @@
                 techListElement.innerHTML = "";
             }
         }
+          // Attach the function to the onchange event for dynamic results.
+        document.getElementById("role").onchange = generateDefinition;
     </script>
 </body>
 </html>
